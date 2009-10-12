@@ -1,0 +1,34 @@
+2001-01-15  Deepak Goel  <deego@poynting.umd.edu>
+
+	*v 3.0.2
+	elder's errors are very detailed..
+	moreover, 	elder is now completely interactive. so u can run
+	elder-substitute interactively (C-x SPC SPC e s)
+
+	
+
+NOTE THAT ELDER USUALLY PROVIDES very detailed error messages, it not
+only tells you what was wrong, it tells you where u were in the file
+when  u did go wrong. 
+
+Very Once in a while, it does not. that is due to a bug.. So here's
+some usual errors i encountered:
+
+[1] Completely untraceable error:
+    Are you doing somehting like:
+     (setq aa-version 1.3.1)	?
+     
+     Note that 1.3.1 is not a number.. I know elder is supposed to
+     tell you what the error is, but doesn't seem to work with this
+     one. 
+
+
+[2] ELDER hangs:
+
+    Do you have aliases for "" ? Note that these can produced by:
+    (protect "")	too!
+
+    
+    Do you have loops within aliases? eg: aa--> bb, and bb--> aa
+
+    eg 2: aa --> aaa

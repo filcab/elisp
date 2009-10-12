@@ -1,0 +1,51 @@
+
+this file is a simple example of elder.. Watch how ELDER will compute
+the following for you:
+
+====================================================
+3^6 = ([ebeg] "some junk here, just for fun"
+              "more junk.."
+       (expt 3 6)  [eend])
+====================================================
+
+or perform a reversal on some string....
+
+
+====================================================
+([ebeg]
+ (defun reverse-my (text)
+   (if (string= text "")
+       ""
+     (concat (reverse-my (substring text 1 (length text)))
+	     (substring text 0 1))))
+ [eend])
+
+====================================================
+
+The reverse of pallindrome is ([ebf]reverse-my pallindrome[eef]).
+
+====================================================
+
+ELDER has some default aliases: for example -[bck], which
+backspaces... (such aliases would be defined if you call M-x
+elder-defaults).  plus you can define your own.. or remove the
+default, or whatever..
+====================================================
+ELDER has modes..  M-x elder-etex  has some latex-specific defaults.., as
+does elder-ehtml and elder-emat..   NO, elder does not do
+regexp-aliasing (yet.. help welcome!)
+
+If you use elder a lot: You can group your usually used
+elder-constructs into elder-style-files..  I have, for instance, my
+own html.est, and article.est, and fundamental.est..  elder-style
+files can be inserted, (yeah, you are right, you could have also 
+achieved this using your own insert.. )...    
+
+
+To see a simple example, go ahead and type M-x  elder-example-html
+
+
+
+
+
+

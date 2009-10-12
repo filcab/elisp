@@ -1,0 +1,11 @@
+
+
+[1] Any error-messages are VERY detailed, and informative. However,
+once in a while, the error-message is very uninformative: 
+"Not enough arguments for the format string." Elder is apparently
+tryuing to generate an error-message but the code is kaputt somewhere.
+
+But is not a critical bug for now. 
+
+The user always has the option of examining the log file to find out
+where he went wrong..

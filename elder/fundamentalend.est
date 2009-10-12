@@ -1,0 +1,35 @@
+
+([ebeg] (ealias "\\makeprintcopy" 
+		'(if (string= (substring initbuf 0 5) "print")
+		     ""
+		   (let ((aa (concat "print" initbuf)))
+		     (write-region (point-min) (point-max)
+				   aa)
+		     (etex aa) 
+	             (eunalias "printvsviewoption")      ""))) 
+ [eend])
+
+\makeprintcopy
+
+
+([ebeg]
+
+;Use of "actual-" quantities ensures we don't modify the variables
+;*print-version* etc. which are defined by the user (me) at the
+;beginning of the document, and i might like to change them there like
+;an end-user as and when i see fit.. Don't wanna have to come down
+;here..
+
+ (setq *actual-print-version* *print-version*)
+ (setq *actual-view-version* *view-version*)
+ (if (string= (substring initbuf 0 5) "print")
+     (progn
+       (setq *actual-print-version* t)
+       (setq *actual-view-version* (not *actual-print-version*))))
+
+ (ealias "printvsviewoption" 
+	 '(if 
+	      (or *manuscript-version* *actual-view-version*) "12pt" "10pt"))
+  ""
+
+ [eend])

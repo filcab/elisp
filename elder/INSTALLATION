@@ -1,0 +1,82 @@
+;;;Wed Jan 24 01:02:38 2001
+As of now,  you don't have to do anything to isntall elder.  Just drop
+the elder-files somwwhere in your load-path..
+
+
+OLD:
+====================================================
+
+Now we have a userguide and that should supercede this file..
+OBTAINING:
+This directory contains all of ELDER. You can either download the
+files you need, or download the gzipped version which is also
+available right here. 
+
+====================================================
+
+
+[A] To run ELDER through EMACS: load elder.el, say via:
+   (load "elder.el")
+
+   Now, (elder filename) opens a filename (ending in .e, if filename
+   doesnot end in .e, it looks for <filename>.e), runs elder on it and
+   writes the output in a filename with the trailign .e stripped.
+   This (elder) can thus work on any document.
+
+   A Latex specialization:
+   (etex <filename>) opens file <filename> if <filename> ends in .tex.e,
+   else it opens <filename>.tex.e, runs elder on it, and writes the
+   resulting <file.tex>.
+
+   similarly, there's a matlab specialization (emat)
+
+
+[B] Here's a way of running it from command-line. 
+    save elder.el, in, say, ~/Emacs/ELDER. 
+    [assumes you are running .tcsh...]
+    Now, add the foll. to your ~/.aliases file:
+
+alias etex 'echo Don''t worry about the first error;\\
+ /bin/rm elder-invoke.el;\\
+ echo \(load \"\~/Emacs/ELDER/elder.el\"\) >elder-invoke.el;\\
+ echo \(etex \"\!:1\"\) >>elder-invoke.el;\\
+ emacs -batch -l elder-invoke.el;\\
+ /bin/mv elder-invoke.el elder-invoke.el~'
+
+and make sure your .aliases is sourced, via say, a line
+source .aliases
+in your .login
+
+Henceforth (etex sample) or (etex sample.tex.e)
+will run ELDER on sample.tex.e and write the output in sample.tex.
+[[you can similarly define stuff for matlab or a general file.]]
+The above works for my tcsh shell; if it does not work on yr machine,
+write me, that will make me get around to creating a more stable
+invocation scheme..---- deego@glue.umd.edu
+
+By the way, i find these further aliases useful:
+
+
+alias elat 'etex \!:1; lat \!:1'
+alias lata 'tap tetex;  latex \!:1; latex \!:1; dvips \!:1'
+alias lat 'tap tetex;  latex \!:1; latex \!:1; dvips \!:1; rmbad'
+alias lath 'lat \!:1; latex2html \!:1'
+alias latv 'lat \!:1; (gv \!:1  &)'
+
+(and one more: for elatv)
+
+elat <file> etexes a file.tex.e, and then lat's the file.tex   
+lat <file>  latexes a file.tex, and dvips's it..
+
+====================================================
+
+If you notice you use the same commands too often, you can group them
+into style files. ELDER accepts style files with extension ".est"..
+Thus ([ebeg] (estyle "article") [eend])  will insert at (point), the
+contents of the file article.est. This file should be placed either in
+your current directory, or it should be within ELDERPATH. So, you are
+advised to define an $ELDERPATH.. (est ==> Elder STyle)
+
+
+I have placed a style file article.est in this directory, 
+See the help file article.help

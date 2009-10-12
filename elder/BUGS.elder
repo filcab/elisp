@@ -1,0 +1,31 @@
+2001-01-15  Deepak Goel  <deego@poynting.umd.edu>
+
+	* v. 3.0.2:
+	 Even though i use save-excursion, elder does not seem to switch
+	 back to the original buffer.  I don't understand why..
+
+	 HELP!!!  no other known bug. except the original one:
+	 that elder-detailed-error is not very good, once in a
+	 while.. but, see troubleshooting..
+
+v.3.0:
+No known bugs  
+Just a feature-i would like to see:
+would like to defvar elder-'s default variables cleverly and thus give
+the user more choice.. as of now, ev. seems fine.. other than that..
+
+====================================================
+
+
+3.0 onwardS:
+the below-mentioned bug seems to have gonve away..
+
+bug in 2.0:
+
+ELDER BUGS:
+
+inside [ebeg] [eend],
+       ; comments may not work properly.
+       please use % insead.
+
+====================================================

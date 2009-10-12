@@ -1,0 +1,177 @@
+ %-*-Latex-*-
+% used by article.est
+%VERSION: See article.est
+%%%% LATEX-VARIABLE-ASSIGNMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% LATEX-VARIABLE-ASSIGNMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% LATEX-VARIABLE-ASSIGNMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% LATEX-VARIABLE-ASSIGNMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% LATEX-VARIABLE-ASSIGNMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% LATEX-VARIABLE-ASSIGNMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% LATEX-VARIABLE-ASSIGNMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% LATEX-VARIABLE-ASSIGNMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% LATEX-VARIABLE-ASSIGNMENTS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% to override any elder-bind, just "setq" before estyle-ing this file.
+
+% The variable article-wasy-option (default is nil) , if set, will try to use
+% wasy-sym. 
+
+([ebeg]
+	(elder-bind article-wasy-option nil)
+	""
+[eend])
+
+ ([ebeg] 
+(elder-bind article-documentclass "\\documentclass") 
+(elder-bind foil-documentclass "\\documentclass[20pt,dvips]") 
+(elder-bind revtex-documentclass "\\documentclass[preprint,prb,aps]")
+"" [eend])
+
+([ebeg]
+ (elder-bind  article-usepackage-color
+  "\\usepackage[([ebeg]*color-device-option*[eend])]{color}")
+ (elder-bind  article-usepackage-latexsym
+  "\\usepackage{latexsym}")
+ (if article-wasy-option
+     (progn
+       (elder-bind  article-usepackage-wasysym
+		    "\\usepackage{wasysym}")
+       (elder-bind   article-postusepackage-wasysym
+		     " \\let\\wasyiint\\iint
+                       \\let\\wasyiiint\\iiint
+                       \\let\\iint\\relax
+                        \\let\\iiint\\relax
+                       "))
+   (progn
+     (elder-bind  article-usepackage-wasysym
+		  "")
+     (elder-bind   article-postusepackage-wasysym
+		   "")))
+ (elder-bind  article-usepackage-amssymb
+  "\\usepackage{amssymb}")
+ (elder-bind  article-usepackage-amsbsy
+  "\\usepackage{amsbsy}")
+ (elder-bind article-usepackage-amsmath
+	     "\\usepackage{amsmath}") 
+ (elder-bind article-usepackage-amsfonts
+	     "\\usepackage{amsfonts} ")
+ (elder-bind article-usepackage-amsthm
+	     "\\usepackage{amsthm}")
+ (elder-bind article-usepackage-eucal
+	     "\\usepackage[mathscr]{eucal}")
+ (elder-bind article-usepackage-graphics
+	     "\\usepackage[dvips]{graphics}")
+ (elder-bind article-usepackage-psfrag
+	     "\\usepackage{psfrag}")
+ (elder-bind article-usepackage-html
+	     "\\usepackage{html, htmllist, makeidx, longtable}")
+ (elder-bind article-usepackage-other 
+	     "") ; left for user..
+ ""
+ [eend])
+%amsmath: math enhancements
+%amsfonts: AMS fonts and symbols.
+%amsthm: proclamations with style
+%[mathscr]{eucal}: Euler script
+
+([ebeg]
+ (elder-bind
+  article-length-command-a
+  "([ebf]articlenonrevtexonly \\advance\\hoffset by -20mm  [eef])")
+ (elder-bind
+  article-length-command-b
+  "([ebf]articlenonrevtexonly \\setlength{\\topmargin}{1.0cm} [eef])")
+ (elder-bind
+  article-length-command-c
+  "([ebf]articlenonrevtexonly \\numberwithin{equation}{section}
+	\\setlength{\\textwidth}{165mm} [eef])")
+ ""	 
+ [eend])
+%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+([ebeg]
+ (elder-bind article-user-other-command "")
+ ""
+ [eend])
+% User may setq this variable before calling article. 
+
+%%%%%%%%%%%%%%% LATEX BEGINS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% LATEX BEGINS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% LATEX BEGINS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+([ebeg] (concat 
+	(if articlep
+	    (if revtexp revtex-documentclass
+	      article-documentclass)
+	  foil-documentclass)
+	"{" article-document "}")
+[eend])
+
+
+([ebeg]
+ (concat
+  article-usepackage-color"\n"
+  article-usepackage-latexsym"\n"
+  article-usepackage-wasysym "\n")
+[eend])
+			% allows /smiley, /frownie, but we wanna
+                      	 % overrule its definitions of some \iint and
+			 % \iiint in favor of those by amssymb..
+
+([ebeg]
+  article-postusepackage-wasysym 
+[eend])
+
+([ebeg]
+(concat 
+ article-usepackage-amssymb "\n"
+ article-usepackage-amsbsy "\n"
+ article-usepackage-amsmath "\n"
+ article-usepackage-amsfonts "\n"
+ article-usepackage-amsthm "\n"
+ article-usepackage-eucal "\n"
+ article-usepackage-graphics "\n"
+ article-usepackage-psfrag "\n"
+ article-usepackage-html "\n"
+ article-usepackage-other "\n")
+ [eend])
+
+
+
+
+%The foll. packages should please be used by the individual tex.e
+%files.. that need them... either introduce usepackage commands just
+%after estyling article, or setq the variable article-usepackage-other
+%before estyling article. 
+
+%\usepackage{charpath}
+%\usepackage{gradient}
+%\usepackage{pstricks}
+%\usepackage{pst-node}
+%\usepackage{pst-coil}
+%If you don't have this package, then you cannot draw the logo.. in foils..
+%\usepackage{pst-3d}
+
+
+%if u don't want page numbers:
+%\nopagenumbers
+%(use either)
+%\setlength{\oddsidemargin}{0.5cm}
+%\setlength{\evensidemargin}{0.5cm}
+([ebeg]
+ (concat
+  article-length-command-a  "\n"
+  article-length-command-b  "\n"
+  article-length-command-c  "\n")
+ [eend])
+
+([ebeg]
+ article-user-other-command
+ [eend])
+
+([ebeg] 
+(elder-bind *mydefs* "latexdefs")
+(estyle *mydefs*) ""
+[eend])
+
+%\setlength{\parskip}{2in} does not work.. do after \begin{document}

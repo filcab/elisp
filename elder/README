@@ -1,0 +1,283 @@
+ -*-text-*- 
+%text-file
+ELDER: Emacs List Document-writER
+
+SEE INSTALL for more information on how to obtain ELDER
+
+
+11/20/00: NOW, we have  a usrguide, and this README is superseded by that..
+
+9/12/00: As of 9/12/00, i think elder27 has done *all* i wanted it
+	 to..  Any changes that i make are always complete
+	 backward-compatible.
+
+ELDER is not part of GNU thoguh i have no objections.
+
+The GPL license found on www.fsf.org applies..
+
+ELDER is a document-writer, which does the equivalent of uniting elisp
+with other languages.. ELDER allows you to write "lisp" regions within
+your latex, matlab etc. files.. The lisp regions are evaluated.. Thus
+you can do things that latex cannot but lisp can.. when writing latex
+code.. ELDER BASICALLY UNITES ANY LANGUAGE YOU WANT, WITH LISP..
+
+If you make mistakes: ELDER has really helpful help messages.. If that
+is not enough, you can turn on *elder-trace*...
+
+This is a quick-use guide to ELDER. More details can be found at the
+end of file elder.el, in the LOGFILE, and other such files..
+
+Changes made since this README was written: The default *elder-begin*
+command is ([ebeg], and the default *elder-end* command is [eend]).
+
+ELDER basically provides:
+[a] Lisp regions ([ebeg].. [eend])
+[b] ealias. (ealias ....)
+[c] direct functions.. ([ebf]function arg[eef]) is same as
+    ([ebeg] (function arg)[eef])
+(The last 2 make life much easier...)
+
+Every usual document is a valid ELDER document, except that ELDER
+provides extra commands to demarkate regions which are to be evaluated
+as LISP expressions. ELDER takes a file ending in .e, evaluates
+(recursively if needed) all LISP expressions within regions demarkated
+as ELDER-regions substitutes them, and returns the new file with the
+.e extension removed. The user is also provided with a LISP function
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ealias (and eunalias), which substitutes any occurence of a matching string
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*anywhere* within the ELDER document. Thus, you can shorten
+\begin{equation} to \beq in Latex which is one example which cannot be
+done via \renewcommand [[[okay, so i just learnt that it can be done
+via using \def instead of \renewcommand , but so what, u get the idea:
+it took me a year to find \def, it will take me minuted to use
+ELDER]]] PS: Of course, since we defined an ealias, there's also
+defined an eunalias. Thus, (eunalias "ee" "ff" "gg") removes, any aliases
+that may have been defined for the strings "ee", "ff" and "gg" respectively.
+
+. By allowing use of variables in Latex, ELDER
+allows me to automatically calculate, for instance, the averages of
+students' grades which i generate using a Latex file and put up on
+web. Every package like MATLAB or Latex has countless limitations of
+its own, and even though they may often provide some roundabout way of
+overcoming them, we Emacs users don't have to master every package in
+the world. If you think Latex doesnot allow a way to automatically
+substitute the value of (sqrt 10) somewhere, calculate it
+automatically using ELDER. Since you can also define functions within
+			   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+the LISP region, the possibilities of what you can do are limited only
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+by your imagination, especially since ELDER recursively operates on the 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ELDER regions.  Hence the name Document-writER.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For more details: See comments at end of elder.el
+
+For installation: See INSTALLATION.
+
+Some ELDER-examples now follow:
+
+Consider this simple file simple.tex.e
+===================================================
+The value of the square-root of today's temperature is $\sqrt(T)=
+([ebeg]
+(setq temp 54.56728)
+(sqrt temp)
+[eend])
+$.
+=======================================================
+This upon operation by ELDER generates simple.tex containing:
+
+=======================================================
+The value of the square-root of today's temperature is
+$\sqrt(T)=7.386967$.
+=======================================================
+
+While this may seem equally easy to do by hand, it makes things easier
+if you are writing a large document with lot of variables and things
+that depend on a few variables which are yet unknown.. (for instance,
+my class's grades, and their averages etc.)
+
+Here's a bit more complicated example:
+
+A file complicated.tex.e
+
+====================================================
+([ebeg]
+(setq *elder-begin* "([elb]" *elder-end* "[ele])")
+;;; This redefines my ELDER-region-demarker commands.  
+;;; (if somebody doesnopt like the defaults..)
+;;;assurances of no conflicts with other document-strings.
+;;;Notice the strange positions of ( and ) in my redefinitions above.
+(ealias "\\beq" "\\begin{equation}" "\\eeq" "\\end{equation}")
+;;;This shall allow me to use \beq for \begin{equation}.
+[eend])
+
+\beq
+x=
+([elb] (+ 1 2) [ele])
+% is equivalent to "x=3", notice the \beq and \eeq as explained above..
+\eeq
+
+([elb]
+;;;this is the new demarker for ELDER expressions as defined above.
+ (concat "([elb" "] 1 [ele]" ")")
+[ele])
+%%% The result of the above expression itself contains ([elb] and 
+%%%[ele])
+%%% ELDER shall thus once again evaluate the resulting LISP region..
+%%% This was an example of recursion..
+====================================================
+
+Now for a rather more complicated example:
+As i said, the possibilities are immense.. Suppoe u don't want to
+write ([ebeg] VAR [eend]) (where VAR) is any variable. U want
+ELDER to itself look for a string \substitute and substitute the value
+of the variable following it. Then \substitutealpha would be
+equivalent to <elderbegin> \alpha <elderend>. 
+
+Here's one way to write such a function:
+([ebeg]
+(ealias "\substitute" 
+'(progn 
+  (forward-search " ") 
+  (insert " [eend]")
+  (insert ")") 
+  (concat "(" "[ebeg]" "\\alpha")
+[eend])
+
+If this works, whenever you write /substitutefoo (where FOO is
+							ANYTHING!)
+ELDER will think u mean ([ebeg] foo [eend])
+
+====================================================
+
+ELDER ettiquettes: Since every ELDER region is supposed to return a
+value (ideally string, but ELDER tries to convert it to string if you
+return a number etc..) which is inserted in place of that region ----
+this means that when you use an ELDER just for side-effects (eg. to
+define an ealias), it's a good ettiquette to return "" after
+defining your alias. If you forget, ELDER mostly returns assumes you
+mean "" but don't count on it, and be prepared to expect things like
+(2 3 4 (3 4))
+
+DEBUGGING/TROUBLESHOOTING: IF ELDER doesn't succeed in writing a
+<file> from <file>.e, turn on *elder-trace* by including [ebeg]
+(setq *elder-trace* t) [eend]. Now, ELDER will write out
+<file>.e.log after each change. Examine the file to see where ELDER
+stopped. That will help you figure out your
+ELDER-syntax-error. Usually, elder's error message is very
+informative, and basically points out the location of the error. The
+"character" number of the error that elder will tell you, is not the
+character of the initial file, but of the log-file. Once in a while,
+the message won't be so informative, and will say: "End of file while
+parsing..". In such cases, *elder-trace* comes in very
+useful. Elder-trace-ing can slow down elder-processing for large
+files.. So, if u r sure the error is near the end of the file, turn on
+elder-tracing near the end of the file, not from start.. see what i
+mean?  When using traceing to trace the error: read the file
+<file>.e.log to see how much of changes elder has processed. The next
+unprocessed change is the one that contains error. Go and correct your
+ELDER-syntax error at that point..
+
+
+You can manually set *elder-aliases* etc. to whatever you like, if you
+wanna do such complicated things as writing out 2 documents starting
+from one document.. each of the 2 having different processing-aliases
+and stuff.. But even thogh i have made all functions "public", i
+consider *elder-aliases* as internal to elder.. so i find it more
+elegant to simply use the functions meant for elder's end-users:
+ealias and eunalias for all my needs..
+
+
+
+All the best, and to install, see file Installation..
+
+=================================================================
+A review:
+
+([ebeg].. [eend]) the enclosed region can be a set of lisp expressions,
+	 (including function-definitions), the expressions are
+	 evaluated in sequence and the last one is returned. 
+
+(ealias "a" "A" "b" "B") -- henceforth, ELDER will substitute "a"
+by "A" whenever it sees "a", and "b" by "B".
+[[ealias can accept yet another format, as shown below.]]
+
+THE above 2 are enough for all purposes. But here's just one more
+extension nonetheless. 
+
+([ebf]function rest [eef])
+is equivalent to 
+([ebeg] (apply (quote function) (stringize rest)) [eend])
+thus function-name can be the (unquoted name) of a function. If you
+obtain function by indirect means, and it is thus in a quoted form,
+please put an eval in front of it.
+
+Thus, ([ebf]doublestring sss/2 [eef]) yields, in the file:
+ sss/2  sss/2, where doublestring is a function you defined as
+[ebef] (defun doublestring (string) (concat string " " string)) [eend]
+
+Note: the string after the function-name needs to be separated from it
+by a lisp-space, thus, a space, or a <TAB> or a line-feed. This space
+does *not* form a part of the string returned to the
+function-name. What do you do, if you do need a space in the front of
+the string? Answer: Use the longer format of elderfunction.
+Here, after you have done ([ebf] and declared your function-name,
+then input the delimiter [eff]. everything right after the eff and upto the
+matching [eef]) will be assumed to be the string, including any
+initial blank spaces. 
+
+You ask: What's the use of this (ebf/eef) when you can simply
+achieve this via an Emacs expression? Answer: The emacs-expression can
+get hairy because of the special \'s required everywhere.  For
+instance: If you want to type: The expression  "(dd)"!  twice in
+your document, and want to use a function you defined doublestring, to
+do it, you would have to type: ([ebeg] (doublestring "The expression:)
+\"(dd)\""!") [eend])")
+
+whereas using [ebf], you only have to do
+([ebf]doublestring[eff] The expression:) "(dd)"![eef]) 
+which provides easier typing for the document-writer. 
+
+Moreover, since I don't have to put in extra inverted-commas, my
+color-coding remains active while creating  .tex.e files, and that's
+helpful. 
+The most use that i find of this is:
+([ebf]selfcomment[eff] The above was gotten by $([elb] (+ 1 2) [ele]) >
+2$. [eef])
+
+This selfcomment is appropriately defined. It will quote the following
+string verbatim, except when i am finally ready to send in the draft,
+in which case the string will be removed.
+
+Currently, i use elder-functions to do the following: insert colors
+at appropriate places, or remove all color depending on what i want to
+do. insert some text in drafts/remove it in final documents.
+Convert all \tags to \labels in the final documents.
+
+ELDER allows you to do recursion: a little reflection shows that for
+document-writers like ELDER, the user would prefer, not a bottom-up
+but a top-down recursion. Thus, ELDER first evaluates all outer
+loops. A simple example of (unnecessary) recursion is:
+([ebeg] "([ebeg](+ 2 3)[eend]")" [eend]).
+here's another one:
+([elbf] ds ([elbf] ds string [elef]) [elef)
+which leads to writing of the string 4 times, if ds is defined to be:
+([elb] (defun ds (any) (concat any any)) [ele]).
+Note again that the above example evaluates the outer loop first. 
+
+Please Note that trying to use insert commands inside an elisp region
+won't insert the desired text into your buffer. It will do so in some
+temporary buffer which of course, is thrown away later. Any commands
+that attempt to modify the buffer directly have an unspecified effect.
+
+
+====================================================
+
+PS: ebeg==> elder-begin
+    eend==>elder-end
+    ebf==> elder-begin-function
+    eef--> elder-end-function
+    eff==> (optional) elder-function-demarker

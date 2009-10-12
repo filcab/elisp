@@ -1,0 +1,20 @@
+
+This style file article.est allows generation of a large variety of
+article-formats from within one document with minimal work.
+
+I toggle one variable, and my article is instantly converted to foils
+(slides) that can be presented.. I tweak another variable, and my all
+my equation-labels are shown alongside the equations.  Which helps for
+easy editing of the file. Tweak a third variable, and all comments and
+notes you may have written will show up in the document, again
+allowing easy editing. So on and so forth..
+
+
+
+
+
+See the file example.tex.e 
+
+
+
+ 

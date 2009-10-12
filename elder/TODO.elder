@@ -1,0 +1,30 @@
+
+* 2/2/01:
+  please define some keystrokes.
+  
+* 2/2/01:
+  please have the variables be defvarr'ed cleverly instead of setq's.
+
+*  also, please have the variables be named in the emacs-fashion
+   rather than the 'cl fashion..  
+
+*  please add interactive support for ELDER. DONE!!!
+
+*  change the logfile such that it reflects the ChangeLog style. DONE!!
+
+* add a function eregalias which is same as ealias, but uses
+regexps. Maybe not! Will such a function make things too slow? Well,
+if it does, it is the user's choice to try not to use this. What's
+wrong with me providing this? NOTHING! So, PLEASE DO THIS...
+      CONTRIBUTER: YOU ARE WELCOME TO HELP ME WITH THIS, I DUNNO TOO
+      MUCH ABOUT REGEXP'S..
+
+*  Make elder-function executable from within a running emacs.. maybe
+   it already is now.. but please do make it interactive..
+
+* But, for big files, advice the user against doing this, so that
+  their editor keeps running.. Make the command-line etex etc. into
+  a file rather than an alias..
+
+* make an equivalent of a .emacs file for elder...!!!
+

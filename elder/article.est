@@ -1,0 +1,9 @@
+% -*-emacs-lisp-*-
+% article.est..
+%% Time-stamp: <2001-01-23 11:18:59 deego>
+%VERSION: 
+([ebeg]
+ (load "article-lisp") ;;note: have to load, cannot estyle because
+		       ;;that file is a lisp file having lispy comments..
+ ""
+ [eend])

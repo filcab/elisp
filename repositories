@@ -1,0 +1,13 @@
+git git://git.sv.gnu.org/emacs.git
+git git://git.sv.gnu.org/color-theme.git
+
+git git://www.tsdh.de/doc-view.git
+git git://git.sv.gnu.org/emms.git
+
+cvs -z3 -d:pserver:anonymous@cvs.savannah.gnu.org:/sources/auctex co auctex
+cvs -z3 -d:pserver:anonymous@cvs.gna.org:/cvs/color-theme co color-theme
+
+cvs -z3 -d:pserver:anoncvs@cvs.haskell.org:/cvs login pass=cvs; cvs co haskell-mode
+
+# ver cedet, elib e jde
+

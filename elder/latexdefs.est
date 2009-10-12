@@ -1,0 +1,100 @@
+
+
+\newcommand{\add}[1]{\left[#1\right]_+}
+\newcommand{\sub}[1]{\left[#1\right]_-}
+
+\newcommand{\squareroot}{\sqrt{1+i \wbar/{(k^2\nu)}}}
+
+
+ \newcommand{\Real}{\mbox{Re}}
+ \newcommand{\Imag}{\mbox{Im}}
+
+ \newcommand{\hatb}{\hat b}
+ \newcommand{\hatR}{\hat R}
+ \newcommand{\hatphi}{\hat \phi}
+ \newcommand{\hatpsi}{\hat \psi}
+ \newcommand{\hatzeta}{\hat \zeta}
+\newcommand{\hatx}{\hat x}
+\newcommand{\haty}{\hat y}
+\newcommand{\hatr}{\hat r}
+\newcommand{\hattheta}{\hat theta}
+%\newcommand{\hatphi}{\hat \theta}
+\newcommand{\hatz}{\hat z}
+
+ \newcommand{\bB}{\vec{B}}
+ \newcommand{\btu}{\vec{\tu}}
+ \newcommand{\bu}{\vec{u}}
+
+\newcommand{\bs}{\boldsymbol}
+\newcommand{\csch}{\mbox{ cosech}}
+\newcommand{\cross}{\mathbf{\times}}
+\newcommand{\dd}{\partial}
+\newcommand{\deriv}[2]{ \ensuremath {\frac{d #1}{d #2}} }
+\newcommand{\derivp}[2]{ \ensuremath {\frac {\partial #1}{\partial #2}} }
+\newcommand{\definedas}{\equiv}
+\newcommand{\eps}{\epsilon}
+
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\third}{\frac{1}{3}}
+\newcommand{\fourth}{\frac{1}{4}}
+\newcommand{\fifth}{\frac{1}{5}}
+\newcommand{\sixth}{\frac{1}{6}}
+\newcommand{\seventh}{\frac{1}{7}}
+\newcommand{\eighth}{\frac{1}{8}}
+\newcommand{\ninth}{\frac{1}{9}}
+\newcommand{\tenth}{\frac{1}{10}}
+
+
+
+\newcommand{\lam}{\ensuremath{\lambda}}
+%\newcommand{\ln}{\mbox{ln}}
+
+\newcommand{\minimum}{{\mbox{min}}} % use for subscripts..
+\newcommand{\maximum}{{\mbox{max}}} % use for subscripts..
+\newcommand{\nab}{\mathbf{\nabla}}
+\newcommand{\sech}{\mbox{ sech}}
+\newcommand{\sign}{\mbox{sign}}
+\newcommand{\n}{\rho}
+
+\newcommand{\np}{\n_+}
+\newcommand{\nm}{\n_-}
+ \newcommand{\tchi}{\tilde \chi}
+
+\newcommand{\tf}{\tilde f}
+\newcommand{\tu}{\tilde {\bf u}}
+\newcommand{\tn}{\tilde \n}
+\newcommand{\tp}{\tilde p}
+\newcommand{\tphi}{\tilde \phi}
+\newcommand{\tpsi}{\tilde \psi}
+\newcommand{\trho}{\tilde \rho}
+
+\newcommand{\bkap}{\vec \kappa}
+\newcommand{\bn}{\tilde{\bar n}}
+\newcommand{\bphi}{\tilde{\bar \phi}}
+\newcommand{\bpsi}{\tilde{\bar \psi}}
+%\newcommand{\bu}{\tilde{\bar \bs{u}}}
+
+\newcommand{\wbar}{\bar \w}
+
+
+\newcommand{\sig}{\sigma}
+\newcommand{\viz}{\emph{viz. }}
+\newcommand{\w}{\omega}
+\newcommand{\W}{\Omega}
+
+\newcommand{\kunit}{\left(\frac{\nm}{\np} \frac{g}{\nu^2}\right)^{1/3}}
+
+\newcommand{\gammaunit}{\left(\frac{\nm^2}{\np^2}
+\frac{g^2}{\nu}\right)^{1/3} }
+
+\newcommand{\shearunit}{\left(\frac{\np}{\nm}
+\frac{g^2}{\nu}\right)^{1/3}}
+
+\newcommand{\nmnp}{\frac{\nm}{\np}}
+\newcommand{\npnm}{\frac{\np}{\nm}}
+\newcommand{\npbnmb}{\frac{\np^2}{\nm^2}}
+
+\newcommand{\cm}{\mbox{cm}}
+\newcommand{\rps}{\mbox{revs}/\mbox{s}}
+\newcommand{\second}{\mbox{s}}
+

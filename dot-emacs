@@ -1,0 +1,27 @@
+
+;;elderdown'scroll
+(require 'aml-elder)
+
+
+;;
+(defun my-latex-setup ()
+  (remove-hook 'LaTeX-mode-hook #'my-latex-setup)
+  (setq TeX-command-list
+	(append '(("Ggv Postscript" "dvips %d -o %f; ggv %f" TeX-run-command nil t)
+		  ("Acroread" "dvips -Pmyfonts %d -o %f; ps2pdf -dEncodeColorImages=false %f; acroread %s.pdf" TeX-run-command nil t)
+		  ("PdfLatex" "pdflatex %s.tex; acroread %s.pdf" TeX-run-command nil t)
+		  ("Xelatex" "xelatex %s.tex; acroread %s.pdf" TeX-run-command nil t)
+		  ("LuaTex" "luatex %s.tex; acroread %s.pdf" TeX-run-command nil t)
+		  ("Scheme" "mzscheme -vf %s.eval4tex" TeX-run-command nil t)
+		  ("Asymptote" "asy %s" TeX-run-command nil t))
+		TeX-command-list))
+  ;; Some useful keys:
+  (define-key LaTeX-mode-map "\C-c\C-c" 'maybe-elder-and-TeX-command-master)
+  (define-key LaTeX-mode-map "\C-cg" 'xdvi-here)
+  ;;the default command
+  (message "Changing default")
+  (setq TeX-command-default "PdfLatex"))
+
+(add-hook 'LaTeX-mode-hook #'my-latex-setup)
+
+(require 'latexize)
