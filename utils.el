@@ -2,7 +2,7 @@
 
 (defun load-private (file &optional NOMESSAGE NOSUFFIX MUST-SUFFIX)
   "Just like #'load, when NOERROR=t, but warns about not loading."
-  (if (load file nil NOMESSAGE NOSUFFIX MUST-SUFFIX)
+  (if (load file t NOMESSAGE NOSUFFIX MUST-SUFFIX)
       t
     (message (concat "Couldn't load private file \""
                      file "\"."))
