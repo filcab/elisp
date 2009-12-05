@@ -1,10 +1,16 @@
 ;; -*- Mode: Emacs-Lisp -*-
 
-(add-to-load-path (home-dir/ "compiled/site-lisp"))
+(add-to-load-path (home-dir/ "compiled/site-lisp")
+                  (home-dir/ "elder"))
 
 (setq-platform git-load-path
                ((darwin . (home-dir/ "git-mode"))
-                (windows-nt . "C:/Program Files/Git/contrib")))
+                (windows-nt . "C:/Program Files/Git/contrib")
+		(gnu/linux . "")))
+
+
+(in-platform fry.l2f.inesc-id.pt
+  (add-to-load-path "/usr/share/xemacs/xemacs-packages/lisp/text-modes"))
 
 (in-platform darwin
   (add-to-exec-path "/opt/local/bin"
@@ -19,7 +25,6 @@
   (add-to-load-path ;;(home-dir/ "auctex")
 ;;                    (home-dir/ "color-theme")
                     (home-dir/ "pov-mode-3.2")
-                    (home-dir/ "elder")
                     git-load-path
 ;;                    (home-dir/ "jde/lisp")
                     (home-dir/ "haskell-mode")

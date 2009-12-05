@@ -22,6 +22,13 @@
           (eq system-type platform))
       `(progn ,@body)))
 
+(defmacro in-platforms ((platform &rest body) &rest rest)
+  (cond ((or (string= system-name platform)
+             (eq system-type platform))
+         `(progn ,@body))
+        ((null rest)) ;; Stop
+        (t `(in-platforms ,@rest))))
+
 
 (defun add-to-list* (list-var elements &optional append compare-fn)
   "Add several elements to list-var (using add-to-list)."
@@ -137,10 +144,11 @@ region. Otherwise, ask for a string."
 
 ;; Create the list in the background.
 ;; Subsequent executions should take around 0.2 secs
-(start-process "app-switcher-list"
-               nil
-               "mdfind"
-               "kMDItemKind == Application")
+(in-platform macosx
+	     (start-process "app-switcher-list"
+			    nil
+			    "mdfind"
+			    "kMDItemKind == Application"))
 
 (defun app-list ()
   (interactive)
