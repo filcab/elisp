@@ -1,0 +1,12 @@
+#emacs|cvs|:pserver:anonymous@cvs.savannah.gnu.org:/sources/emacs|emacs|EMACS_23_1
+#auctex|cvs|:pserver:anonymous@cvs.savannah.gnu.org:/sources/auctex|auctex|release_11_85
+auctex-11.85|tgz|http://ftp.gnu.org/pub/gnu/auctex/auctex-11.85.tar.gz
+haskell-mode|tgz|http://www.iro.umontreal.ca/~monnier/elisp/haskell-mode-2.4.tar.gz|haskell-mode-2.4
+#nxhtml|zip|http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-1.87-090708.zip
+#cedet|cvs|:pserver:anonymous@cedet.cvs.sourceforge.net:/cvsroot/cedet|cedet|cedet-1p0pre6
+#ecb|cvs|:pserver:anonymous@ecb.cvs.sourceforge.net:/cvsroot/ecb|ecb|ecb2-40
+#color-theme|tgz|http://mirrors.linhub.com/savannah/color-theme/color-theme-6.6.0.tar.gz|color-theme-6.6.0
+#jde|svn|https://jdee.svn.sourceforge.net/svnroot/jdee/tags/jde-2.3.5.1
+
+#extra/quack.el|curl|http://www.neilvandyke.org/quack/quack.el
+

@@ -1,5 +1,7 @@
 ;; -*- Mode: Emacs-Lisp -*-
 
+(add-to-load-path (home-dir/ "compiled/site-lisp"))
+
 (setq-platform git-load-path
                ((darwin . (home-dir/ "git-mode"))
                 (windows-nt . "C:/Program Files/Git/contrib")))
