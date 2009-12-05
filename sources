@@ -1,6 +1,6 @@
 #emacs|cvs|:pserver:anonymous@cvs.savannah.gnu.org:/sources/emacs|emacs|EMACS_23_1
 #auctex|cvs|:pserver:anonymous@cvs.savannah.gnu.org:/sources/auctex|auctex|release_11_85
-auctex-11.85|tgz|http://ftp.gnu.org/pub/gnu/auctex/auctex-11.85.tar.gz
+auctex|tgz|http://ftp.gnu.org/pub/gnu/auctex/auctex-11.85.tar.gz|auctex-11.85
 haskell-mode|tgz|http://www.iro.umontreal.ca/~monnier/elisp/haskell-mode-2.4.tar.gz|haskell-mode-2.4
 #nxhtml|zip|http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-1.87-090708.zip
 #cedet|cvs|:pserver:anonymous@cedet.cvs.sourceforge.net:/cvsroot/cedet|cedet|cedet-1p0pre6
