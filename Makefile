@@ -7,7 +7,9 @@ EL_SITE = $C/site-lisp
 EL_INFO = $C/info
 ELISP_CONFIGURE = ./configure --with-emacs=${EMACS} --prefix=${EL_PREFIX} --bindir=${EL_BINDIR}
 
-.PHONY: build_auctex
+.PHONY: build_auctex build_haskell-mode
+
+all: build_auctex build_haskell-mode
 
 build_auctex:
 	cd auctex && \
@@ -16,5 +18,10 @@ build_auctex:
 		--with-lispdir=${EL_SITE} \
 		--infodir=${EL_INFO} && \
 	make all install
+
+build_haskell-mode:
+	${EMACS} --eval "(add-to-list 'load-path \"${PWD}/haskell-mode\")" \
+		 --eval '(byte-recompile-directory "${PWD}/haskell-mode" 0)' \
+		 --batch
 
 
