@@ -13,7 +13,8 @@
   (add-to-load-path "/usr/share/xemacs/xemacs-packages/lisp/text-modes"))
 
 (in-platform darwin
-  (add-to-exec-path "/opt/local/bin"
+  (add-to-exec-path "/usr/local/bin"
+                    "/opt/local/bin"
                     "/opt/local/sbin"
                     "/Applications/Dev/Graphviz.app/Contents/MacOS"
                     (home-dir/ "valgrind/bin")

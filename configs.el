@@ -118,6 +118,7 @@
 
 ;; Color theme
 (require 'color-theme-autoloads "color-theme-autoloads")
+(autoload 'color-theme-hober2 "color-theme-hober2" "Hober's 2nd color-theme")
 (defun filcab-color-theme ()
   (interactive)
   (color-theme-initialize)
@@ -207,6 +208,7 @@
 (setq require-final-newline t)
 
 (in-platform darwin
+  (require 'growl)
   ;; Mac OS X configurations
   (setq mac-pass-command-to-system nil)   ; avoid hiding with M-h
   (setq mac-command-modifier 'meta)       ; muscular memory, already in

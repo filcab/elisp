@@ -13,6 +13,20 @@
 (setq erc-echo-notices-in-minibuffer-flag t)
 ;(setq erc-auto-query 'bury)  ; private messages displayed in another buffer
 
+;; Notify when my nick is mentioned
+(defun my-notify-erc (match-type nickuserhost message)
+  "Notify when a message is received."
+  (growl (format "%s in %s"
+                 ;; Username of sender
+                 (car (split-string nickuserhost "!"))
+                 ;; Channel
+                 (or (erc-default-target) "#unknown"))
+         ;; Remove duplicate spaces
+         (replace-regexp-in-string " +" " " message)))
+
+(add-hook 'erc-text-matched-hook 'my-notify-erc)
+
+
 ;; Log stuff
 (setq erc-log-channels-directory "~/Documents/logs/erc/")
 (setq erc-save-buffer-on-part t)
