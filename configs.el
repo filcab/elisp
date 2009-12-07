@@ -117,9 +117,9 @@
 (require 'linum)
 
 ;; Color theme
+(require 'color-theme-autoloads "color-theme-autoloads")
 (defun filcab-color-theme ()
   (interactive)
-  (require 'color-theme)
   (color-theme-initialize)
   (color-theme-dark-blue2)
   (color-theme-dark-green)) ;; To change some small stuff for the better
@@ -135,6 +135,11 @@
 
 (setq-default show-trailing-whitespace t)
 
+;; Emacs Lisp auto compile:
+(setq-default auto-compile-when 1)
+(setq-default auto-compile-flag 'compiledp-or-ask)
+(setq-default auto-compile-remember nil)
+(autoload 'auto-compile-mode "auto-compile" "" t)
 
 ;; EShell configs
 (defun eshell-maybe-bol ()
