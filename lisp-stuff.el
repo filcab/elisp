@@ -114,7 +114,7 @@
   "Send the appropriate forms to CL to be evaluated."
   (interactive "P")
   (save-excursion
-    (cond 
+    (cond
       ;;Region selected - evaluate region
       ((not (equal mark-active nil))
        (copy-region-as-kill-nomark (mark) (point)))
@@ -177,8 +177,8 @@ currently under the curser"
                (if (or word-at-point symbol-at-point)
                    (concat "Symbol (default " default "): ")
                  "Symbol (no default): "))))
-    (if (and (string= inp "") (not word-at-point) (not
-                                                   symbol-at-point))
+    (if (and (string= inp "") (not (word-at-point))
+             (not symbol-at-point))
         (message "you didn't enter a symbol!")
       (let ((search-type (read-from-minibuffer
                           "full-text (f) or basic (b) search (default b)? ")))
