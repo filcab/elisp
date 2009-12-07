@@ -23,7 +23,7 @@
                     (home-dir/ "llvm/bin"))
 
   (add-to-load-path ;;(home-dir/ "auctex")
-;;                    (home-dir/ "color-theme")
+                    (home-dir/ "color-theme")
                     (home-dir/ "pov-mode-3.2")
                     git-load-path
 ;;                    (home-dir/ "jde/lisp")
