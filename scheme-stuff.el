@@ -6,7 +6,7 @@
 (setq scheme-program-name "mzscheme")
 
 (defvar plt-dir (home-dir/ "dev/stuff/plt/"))
-(setq quack-pltcollects-dir (home-dir/ "dev/stuff/plt/collects/"))
+(defvar quack-pltcollects-dir (home-dir/ "dev/stuff/plt/collects/"))
 ;(define-key scheme-mode-map [f1]
 ;  '(lambda ()
 ;     (interactive)
