@@ -35,7 +35,7 @@
 
     ;; If called from a "root" file, we need to fix up the path.
     (when tramp
-      (setq path (tramp-file-name-path tramp)
+      (setq path (tramp-file-name-localname tramp)
    	    dir (file-name-directory path)))
 
     (when (setq file (read-file-name "Find file (UID = 0): " dir path))
