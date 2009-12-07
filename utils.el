@@ -22,20 +22,22 @@
           (eq system-type platform))
       `(progn ,@body)))
 
-(defmacro in-platforms ((platform &rest body) &rest rest)
-  (cond ((or (string= system-name platform)
-             (eq system-type platform))
-         `(progn ,@body))
-        ((null rest)) ;; Stop
-        (t `(in-platforms ,@rest))))
+
+(defmacro in-platforms (plat-body &rest rest)
+  (let ((platform (car plat-body))
+        (body (cdr plat-body)))
+    (cond ((or (string= system-name platform)
+               (eq system-type platform))
+           `(progn ,@body))
+          ((null rest)) ;; Stop
+          (t `(in-platforms ,@rest)))))
 
 
 (defun add-to-list* (list-var elements &optional append compare-fn)
   "Add several elements to list-var (using add-to-list)."
   (let ((compare-fn (or compare-fn 'equal)))
-    (mapcar (lambda (element)
-	      (add-to-list list-var element append compare-fn))
-	    elements)
+    (dolist (element elements)
+      (add-to-list list-var element append compare-fn))
     (symbol-value list-var)))
 
 (defun add-to-load-path (&rest paths)
@@ -45,14 +47,45 @@
                           (expand-file-name path))
 			paths)))
 
-(defun add-to-exec-path (&rest paths)
-  "Adds every path (after expansion) to the variable 'exec-path"
-  (add-to-list* 'exec-path
-                (mapcar (lambda (path)
-                          (expand-file-name path))
-			paths)))
+;; (defun add-to-exec-path (&rest paths)
+;;   "Adds every path (after expansion) to the variable 'exec-path"
+;;   (add-to-list* 'exec-path
+;;                 (mapcar (lambda (path)
+;;                           (expand-file-name path))
+;; 			paths)))
+
+(defun add-to-exec-path (&rest arg)
+  ;; From CarbonEmacs.app
+  "Add the each element of ARG to the PATH environment variable
+and to the value of `exec-path'.
+
+For example:
+\(add-to-exec-path '(\"/usr/local/bin\" \"/usr/X11R6/bin\"))
+\(add-to-exec-path \"/usr/local/bin:/usr/X11R6/bin\")
+\(add-to-exec-path \"/opt/local/bin\" \"/usr/texbin\")"
+  (cond ((listp (car arg)) ;; First case
+         (setq arg (car arg)))    
+        ((null (cdr arg)) ;; Second case
+         (setq arg (split-string (car arg) ":"))))
+  ;; Third case is the best one
+  (message "Old PATH=%s" (getenv "PATH"))
+  (dolist (path (prune-directory-list arg))
+    (add-to-env "PATH" path)
+    (add-to-list 'exec-path path t))
+  (message "PATH=%s" (getenv "PATH")))
+
+(defun add-to-env (key value)
+  ;; From CarbonEmacs
+  "Document forthcoming..."
+  (let ((env (getenv key)))
+    (if (and env (not (equal env "")))
+        (if (not (member value (split-string env ":")))
+            (setenv key (concat env ":" value)))
+      (setenv key value))))
+
 
 (defun toggle-fullscreen ()
+  ;; Only in CarbonEmacs, for now...
   "Toggles fullscreen in emacs"
   (interactive)
   (set-frame-parameter nil
@@ -62,6 +95,7 @@
                            'fullboth)))
 
 (defun copy-line ()
+  ;; From aadsm
   "Copy line to kill ring."
   (interactive)
   (copy-region-as-kill (line-beginning-position)
@@ -144,24 +178,24 @@ region. Otherwise, ask for a string."
 
 ;; Create the list in the background.
 ;; Subsequent executions should take around 0.2 secs
-(in-platform macosx
-	     (start-process "app-switcher-list"
-			    nil
-			    "mdfind"
-			    "kMDItemKind == Application"))
+;; (in-platform macosx
+;; 	     (start-process "app-switcher-list"
+;; 			    nil
+;; 			    "mdfind"
+;; 			    "kMDItemKind == Application"))
 
-(defun app-list ()
-  (interactive)
-;  (read-from-string
-  (with-output-to-string
-    (call-process "osascript"
-                  nil
-                  standard-output
-                  nil
-                  "-e"
-                  "tell application \"System Events\" to \
-                        set the_apps to name of application processes \
-                        whose background only is false")))
+;; (defun app-list ()
+;;   (interactive)
+;; ;  (read-from-string
+;;   (with-output-to-string
+;;     (call-process "osascript"
+;;                   nil
+;;                   standard-output
+;;                   nil
+;;                   "-e"
+;;                   "tell application \"System Events\" to \
+;;                         set the_apps to name of application processes \
+;;                         whose background only is false")))
 
 
 (defun app-switch ()
