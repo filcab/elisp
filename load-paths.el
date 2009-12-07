@@ -1,7 +1,9 @@
 ;; -*- Mode: Emacs-Lisp -*-
 
-(add-to-load-path (home-dir/ "compiled/site-lisp")
-                  (home-dir/ "elder"))
+(add-to-load-path (home-dir/ "compiled/site-lisp") ;; Compiled AucTeX
+                  (home-dir/ "elder")
+                  (home-dir/ "color-theme")
+                  (home-dir/ "haskell-mode"))
 
 (setq-platform git-load-path
                ((darwin . (home-dir/ "git-mode"))
@@ -24,11 +26,10 @@
                     (home-dir/ "llvm/bin"))
 
   (add-to-load-path ;;(home-dir/ "auctex")
-                    (home-dir/ "color-theme")
+
                     (home-dir/ "pov-mode-3.2")
                     git-load-path
 ;;                    (home-dir/ "jde/lisp")
-                    (home-dir/ "haskell-mode")
                     "~/dev/slime"
 ;;                    (home-dir/ "emms/lisp")
 ))
