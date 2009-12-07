@@ -1,8 +1,8 @@
 ;; -*- Mode: Emacs-Lisp -*-
 
 (setq message-signature
-      (lambda ()
-        (shell-command-to-string "cat $HOME/.signature")))
+  (lambda ()
+    (shell-command-to-string "cat $HOME/.signature")))
 
 (load-private "gnus-private")
 (load-private "signatures-private")
@@ -15,8 +15,8 @@
 ;;(setq gnus-secondary-select-methods '((nntp "news.novis.pt")))
 
 ;; Sort groups by level, then alphabetically
-(setq gnus-group-sort-function 
-      '(gnus-group-sort-by-alphabet gnus-group-sort-by-level))
+(setq gnus-group-sort-function
+  '(gnus-group-sort-by-alphabet gnus-group-sort-by-level))
 
 ;; Group newsgroups in topics
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
@@ -38,23 +38,23 @@
 (defun message-make-fqdn ()
   "farnsworth.albasani.net")
 
-(defun start-gnus (server)
-  (let ((gnus-select-method
-         (cdr (assoc server my-news-servers))))
-    (gnus)))
+;; (defun start-gnus (server)
+;;   (let ((gnus-select-method
+;;          (cdr (assoc server my-news-servers))))
+;;     (gnus)))
 
-(defun gnus-novis ()
-  (interactive)
-  (start-gnus 'novis))
+;; (defun gnus-novis ()
+;;   (interactive)
+;;   (start-gnus 'novis))
 
-(defun gnus-sapo ()
-  (interactive)
-  (start-gnus 'sapo))
+;; (defun gnus-sapo ()
+;;   (interactive)
+;;   (start-gnus 'sapo))
 
 
 ;; show all headers
 (setq gnus-visible-headers nil)
- 
+
 ;; ignore boring headers
 ;; From: http://www.emacswiki.org/cgi-bin/emacs-en/ArticleBuffer
 (setq gnus-ignored-headers
