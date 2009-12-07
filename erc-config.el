@@ -97,24 +97,24 @@
 (require 'erc-services)
 (erc-services-mode 1)
 
-;; Freenode changed the line to warn about registered nicks
-;; Change it back. I want to be warned when this hack becomes useless
-;; Version 5.3 no longer needs it
-(when (string= (substring (erc-version) 12 15) "5.2")
-  (let ((nickserv (assoc 'freenode erc-nickserv-alist)))
-    (if (string= "/msg\\s-NickServ\\s-IDENTIFY\\s-<password>"
-                 (nth 2 nickserv))
-        (setcar (cddr nickserv)
-                "/msg\\s-NickServ\\s-IDENTIFY\\s-<password>")
-      (message "Freenode NickServ IDENTIFY hack is now useless"))))
-
-;; And now, the OFTC hack
-(let ((nickserv (assoc 'OFTC erc-nickserv-alist)))
-  (if (string= "type\\s-/msg\\s-NickServ\\s-IDENTIFY\\s-password."
-               (nth 2 nickserv))
-      (setcar (cddr nickserv)
-              "services\\s-with\\s-the\\s-IDENTIFY\\s-command")
-    (message "OFTC NickServ IDENTIFY hack is useless in ")))
+;; ;; Freenode changed the line to warn about registered nicks
+;; ;; Change it back. I want to be warned when this hack becomes useless
+;; ;; Version 5.3 no longer needs it
+;; (when (string= (substring (erc-version) 12 15) "5.2")
+;;   (let ((nickserv (assoc 'freenode erc-nickserv-alist)))
+;;     (if (string= "/msg\\s-NickServ\\s-IDENTIFY\\s-<password>"
+;;                  (nth 2 nickserv))
+;;         (setcar (cddr nickserv)
+;;                 "/msg\\s-NickServ\\s-IDENTIFY\\s-<password>")
+;;       (message "Freenode NickServ IDENTIFY hack is now useless"))))
+;;
+;; ;; And now, the OFTC hack
+;; (let ((nickserv (assoc 'OFTC erc-nickserv-alist)))
+;;   (if (string= "type\\s-/msg\\s-NickServ\\s-IDENTIFY\\s-password."
+;;                (nth 2 nickserv))
+;;       (setcar (cddr nickserv)
+;;               "services\\s-with\\s-the\\s-IDENTIFY\\s-command")
+;;     (message "OFTC NickServ IDENTIFY hack is now useless")))
 
 
 (defun erc-cmd-PLAYING ()
