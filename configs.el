@@ -162,7 +162,9 @@
 
 
 ;; Key configurations
-(global-set-key "\C-x\c" #'copy-line)
+;; Give M-x compile a better shortcut
+(global-set-key "\C-x\c" #'compile)
+
 (global-set-key "\M-s" #'save-buffer)
 (global-set-key "\M-\r" #'toggle-fullscreen)
 
