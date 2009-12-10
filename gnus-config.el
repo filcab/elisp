@@ -4,8 +4,8 @@
   (lambda ()
     (shell-command-to-string "cat $HOME/.signature")))
 
-(load-private "gnus-private")
-(load-private "signatures-private")
+;;(load-private "gnus-private")
+;;(load-private "signatures-private")
 
 ;; News servers:
 (setq gnus-select-method '(nntp "news.albasani.net"))

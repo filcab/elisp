@@ -138,8 +138,8 @@
 
 
 
-(load-private "~/.ercpass")
+;;(load-private "~/.ercpass")
 (setq erc-prompt-for-nickserv-password nil)
 
-(load-private "erc-private.el")
+;;(load-private "erc-private.el")
 

@@ -9,6 +9,7 @@
 ;;(command-frequency-mode 1)
 ;;(command-frequency-autosave-mode 1)
 
+(load-private "private.el.gpg")
 
 ;;;; Main configs
 ;; DON'T use iso-8859-* nor mac-roman nor cp1215 nor whatever
@@ -140,7 +141,8 @@
 (setq-default auto-compile-when 1)
 (setq-default auto-compile-flag 'compiledp-or-ask)
 (setq-default auto-compile-remember nil)
-(autoload 'auto-compile-mode "auto-compile" "" t)
+(setq auto-compile-exclude '("private.el.gpg$")) ; Don't compile private files
+(autoload 'auto-compile-mode "auto-compile" "Auto compile files" t)
 
 ;; EShell configs
 (defun eshell-maybe-bol ()
