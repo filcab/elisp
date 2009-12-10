@@ -9,6 +9,16 @@
 ;;(command-frequency-mode 1)
 ;;(command-frequency-autosave-mode 1)
 
+;; When debugging
+(setq debug-on-error t)
+
+;; Utility functions/macros
+(load "utils")
+
+;; Setup load (and exec) paths stuff
+(load "load-paths")
+
+;; Private data (IRC, mail, etc.)
 (load-private "private.el.gpg")
 
 ;;;; Main configs
@@ -24,16 +34,6 @@
 
 ;; Use TeX style stuff for funny chars
 (setq default-input-method "TeX")
-
-;; When debugging
-(setq debug-on-error t)
-
-;; Utility functions/macros
-(load "utils")
-
-;; Setup load (and exec) paths stuff
-(load "load-paths")
-
 
 ;; Show stuff
 (iswitchb-mode t)
