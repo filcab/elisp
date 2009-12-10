@@ -64,11 +64,12 @@ For example:
 \(add-to-exec-path \"/usr/local/bin:/usr/X11R6/bin\")
 \(add-to-exec-path \"/opt/local/bin\" \"/usr/texbin\")"
   (cond ((listp (car arg)) ;; First case
-         (setq arg (car arg)))    
+         (setq arg (car arg)))
         ((null (cdr arg)) ;; Second case
          (setq arg (split-string (car arg) ":"))))
   ;; Third case is the best one
   (message "Old PATH=%s" (getenv "PATH"))
+  (message "Adding: %s" arg)
   (dolist (path (prune-directory-list arg))
     (add-to-env "PATH" path)
     (add-to-list 'exec-path path t))
