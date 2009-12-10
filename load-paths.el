@@ -5,30 +5,32 @@
                   (home-dir/ "color-theme")
                   (home-dir/ "haskell-mode"))
 
+(add-to-exec-path "/usr/local/bin"
+                  "~/coq/bin")
+
 (setq-platform git-load-path
                ((darwin . (home-dir/ "git-mode"))
                 (windows-nt . "C:/Program Files/Git/contrib")
 		(gnu/linux . "")))
 
+(add-to-load-path git-load-path)
 
 (in-platform fry.l2f.inesc-id.pt
   (add-to-load-path "/usr/share/xemacs/xemacs-packages/lisp/text-modes"))
 
 (in-platform darwin
-  (add-to-exec-path "/usr/local/bin"
-                    "/opt/local/bin"
+  (add-to-exec-path "/opt/local/bin"
                     "/opt/local/sbin"
                     "/Applications/Dev/Graphviz.app/Contents/MacOS"
-                    (home-dir/ "valgrind/bin")
-                    (home-dir/ "toolchains/bin")
-                    (home-dir/ ".cabal/bin")
-                    (home-dir/ "dev/stuff/llvm/llvm/tools/clang/utils")
-                    (home-dir/ "llvm/bin"))
+                    "~/valgrind/bin"
+                    "~/toolchains/bin"
+                    "~/.cabal/bin"
+                    "~/dev/stuff/llvm/llvm/tools/clang/utils"
+                    "~/llvm/bin")
 
   (add-to-load-path ;;(home-dir/ "auctex")
 
-                    (home-dir/ "pov-mode-3.2")
-                    git-load-path
+;;                    (home-dir/ "pov-mode-3.2")
 ;;                    (home-dir/ "jde/lisp")
                     "~/dev/slime"
 ;;                    (home-dir/ "emms/lisp")
@@ -114,6 +116,20 @@
       (append
        '(("\\.hs\\'" . haskell-mode)
 	 ("\\.lhs\\'" . haskell-mode))
+       auto-mode-alist))
+
+;; Autoload Theorem Proving stuff
+(defvar thm-proving-autoloads
+  '(proof-splash-display-screen coq-mode isar-mode))
+(autoloads thm-proving-autoloads
+           "proof-general/generic/proof-site.el"
+           "Proof General"
+           t)
+
+(setq auto-mode-alist
+      (append
+       '(("\\.v\\'" . coq-mode)
+         ("\\.thy\\'" . isar-mode))
        auto-mode-alist))
 
 ;; Java hook
