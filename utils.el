@@ -68,8 +68,6 @@ For example:
         ((null (cdr arg)) ;; Second case
          (setq arg (split-string (car arg) ":"))))
   ;; Third case is the best one
-  (message "Old PATH=%s" (getenv "PATH"))
-  (message "Adding: %s" arg)
   (dolist (path (prune-directory-list arg))
     (add-to-env "PATH" path)
     (add-to-list 'exec-path path t))
