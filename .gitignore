@@ -1,4 +1,4 @@
-*-private.*
+private.el.gpg
 *.elc
 *~
 /#lisp-stuff.el#
