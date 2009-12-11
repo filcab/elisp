@@ -1,5 +1,7 @@
 ;; -*- Mode: Emacs-Lisp -*-
 
+(load-private-data) ;; For loading private.el.gpg
+
 (setq message-signature
   (lambda ()
     (shell-command-to-string "cat $HOME/.signature")))

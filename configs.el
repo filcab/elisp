@@ -19,7 +19,11 @@
 (load "load-paths")
 
 ;; Private data (IRC, mail, etc.)
-(load-private "private.el.gpg")
+(defun load-private-data ()
+  (load-private "private.el.gpg"))
+;; We have private data for ERC, GNUS
+(add-hook 'erc-mode-hook #'load-private-data)
+
 
 ;;;; Main configs
 ;; DON'T use iso-8859-* nor mac-roman nor cp1215 nor whatever

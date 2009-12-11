@@ -91,6 +91,10 @@
 	       (call-interactively 'erc)
 	     (erc :server ,server :port ,port :nick ,nick)))))
 
+(de-erc-connect erc-freenode "irc.freenode.net" 6667 "filcab42")
+(de-erc-connect erc-llvm "irc.oftc.net" 6667 "filcab")
+(de-erc-connect erc-quakenet "irc.quakenet.org" 6667 "filcab")
+
 
 ;(setq erc-default-connections '(erc-freenode erc-llvm))
 ;(setq erc-default-connections '(erc-freenode))
