@@ -84,14 +84,13 @@
 (defmacro de-erc-connect (command server port nick)
   "Create interactive command `command', for connecting to an IRC server. The
       command uses interactive mode if passed an argument."
-  (fset command
-	`(lambda (arg)
-	   (interactive "p")
-	   (if (not (= 1 arg))
-	       (call-interactively 'erc)
-	     (erc :server ,server :port ,port :nick ,nick)))))
+  `(defun ,command (arg)
+     (interactive "p")
+     (if (not (= 1 arg))
+         (call-interactively 'erc)
+       (erc :server ,server :port ,port :nick ,nick))))
 
-(de-erc-connect erc-freenode "irc.freenode.net" 6667 "filcab42")
+(de-erc-connect erc-freenode "irc.freenode.net" 6667 "filcab")
 (de-erc-connect erc-llvm "irc.oftc.net" 6667 "filcab")
 (de-erc-connect erc-quakenet "irc.quakenet.org" 6667 "filcab")
 
