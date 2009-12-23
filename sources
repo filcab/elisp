@@ -10,6 +10,8 @@ haskell-mode|tgz|http://www.iro.umontreal.ca/~monnier/elisp/haskell-mode-2.4.tar
 color-theme|tgz|http://mirrors.zerg.biz/nongnu/color-theme/color-theme-6.6.0.tar.gz|color-theme-6.6.0
 # Proof-General, for Coq, Isabelle, and other Theorem Provers
 proof-general|tgz|http://proofgeneral.inf.ed.ac.uk/releases/ProofGeneral-3.7.1.tgz|ProofGeneral-3.7.1
+# DVC: Distributed version control
+dvc|bzr_tgz|http://bzr.xsteve.at/dvc|http://download.gna.org/dvc/download/dvc-snapshot.tar.gz|dvc-snapshot
 
 #misc software, I don't know if I'll keep it here...
 #nxhtml|zip|http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-1.87-090708.zip

@@ -24,4 +24,8 @@ build_haskell-mode:
 		 --eval '(byte-recompile-directory "${PWD}/haskell-mode" 0)' \
 		 --batch
 
+build_dvc:
+	cd dvc && \
+	if [ ! -f configure ]; then autoconf; fi && \
+	${ELISP_CONFIGURE} && time make && make install
 

@@ -75,5 +75,18 @@ sub zip ($$$) {
     `mv "$res" "$dir"` unless ($res eq "");
 }
 
+sub bzr_tgz ($$$$) {
+    my $dir = shift, $bzr_url = shift, $tgz_url = shift, $res = shift;
+    return if (-e $dir);
+
+    open BZR, "bzr get $bzr_url $dir |";
+    print while (<BZR>);
+    close BZR;
+    unless ($? == 0) {
+        system("rm -rf $dir");
+        tgz($dir, $tgz_url, $res);
+    }
+}
+
 print "\n";
 print "Done!\n";
