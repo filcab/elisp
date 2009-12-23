@@ -67,6 +67,9 @@
 
 ;; (setq ido-enable-flex-matching nil)
 
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'reverse)
+
 ;; Major-modes configurations
 ;;(load "gnus-config")
 (setq gnus-init-file "gnus-config")
@@ -148,6 +151,7 @@
 (setq auto-compile-exclude '("private.el.gpg$")) ; Don't compile private files
 (autoload 'auto-compile-mode "auto-compile" "Auto compile files" t)
 
+
 ;; EShell configs
 (defun eshell-maybe-bol ()
   (interactive)
@@ -165,6 +169,9 @@
 
 ;; SVN
 (setq svn-status-svn-executable "/opt/local/bin/svn")
+
+;; Load DVC (Distributed Version Control)
+(load "dvc-load.el")
 
 
 ;; Key configurations

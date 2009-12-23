@@ -1,6 +1,7 @@
 ;; -*- Mode: Emacs-Lisp -*-
 
 (add-to-load-path (home-dir/ "compiled/site-lisp") ;; Compiled AucTeX
+                  (home-dir/ "compiled/share/emacs/site-lisp/dvc") ;; DVC
                   (home-dir/ "elder")
                   (home-dir/ "color-theme")
                   (home-dir/ "haskell-mode"))
@@ -13,7 +14,7 @@
                 (windows-nt . "C:/Program Files/Git/contrib")
 		(gnu/linux . "")))
 
-(add-to-load-path git-load-path)
+;;(add-to-load-path git-load-path)
 
 (in-platform fry.l2f.inesc-id.pt
   (add-to-load-path "/usr/share/xemacs/xemacs-packages/lisp/text-modes"))
