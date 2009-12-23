@@ -69,6 +69,7 @@ For example:
          (setq arg (split-string (car arg) ":"))))
   ;; Third case is the best one
   (dolist (path (prune-directory-list arg))
+    (setq path (expand-file-name path))
     (add-to-env "PATH" path)
     (add-to-list 'exec-path path t))
   (message "PATH=%s" (getenv "PATH")))
