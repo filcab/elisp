@@ -1,9 +1,14 @@
 # Emacs from CVS
 #emacs|cvs|:pserver:anonymous@cvs.savannah.gnu.org:/sources/emacs|emacs|EMACS_23_1
+# Emacs from bzr (not yet implemented)
+#emacs|bzr|...|... # branch? Version release?
+
+# Use only one of the AucTeX packages
 # AucTeX (CVS release)
-#auctex|cvs|:pserver:anonymous@cvs.savannah.gnu.org:/sources/auctex|auctex|release_11_85
+auctex|cvs|:pserver:anonymous@cvs.savannah.gnu.org:/sources/auctex|auctex|release_11_85
 # AucTeX (release)
-auctex|tgz|http://ftp.gnu.org/pub/gnu/auctex/auctex-11.85.tar.gz|auctex-11.85
+#auctex|tgz|http://ftp.gnu.org/pub/gnu/auctex/auctex-11.85.tar.gz|auctex-11.85
+
 # Haskell-mode release
 haskell-mode|tgz|http://www.iro.umontreal.ca/~monnier/elisp/haskell-mode-2.4.tar.gz|haskell-mode-2.4
 # Color-theme
