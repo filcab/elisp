@@ -35,12 +35,6 @@
 (setq TeX-source-specials-view-start-server t)
 
 ;; (add-to-list 'TeX-command-list '("View" "%V" TeX-run-discard nil t))
-;; (add-to-list 'TeX-output-view-style
-;;              '("^dvi$" "."
-;;                "%(o?)open -a TeXniscope %o"))
-;; (add-to-list 'TeX-output-view-style
-;;              '("^pdf$" "."
-;;                "%(o?)open -a Skim %o"))
 
 (defun filcab-latex-mode-hook ()
   (turn-on-auto-fill)
@@ -49,9 +43,12 @@
   (flyspell-mode 1)
   (define-key LaTeX-mode-map "\C-c\C-c" 'maybe-elder-and-TeX-command-master)
   (setq-default reftex-cite-format "~\\cite{%l}")
-)
-
 ;;  (flyspell-buffer)) ;; If it's too slow, just remove this
+  (add-to-list 'TeX-output-view-style
+	       `("^pdf$" "."
+		 ,(concat "%(o?)" open-program " %o")))
+  )
+
 
 (in-platform windows-nt
   (eval-after-load "tex"
