@@ -19,12 +19,18 @@ while (<SOURCES>) {
 sub cvs ($$$$) {
     my $dir = shift, $root = shift, $module = shift, $tag = shift;
 
+    if ($tag == "") {
+        $tagArg = "";
+    } else {
+        $tagArg = "-r$tag";
+    }
+
     if (-e $dir) {
         my $old_dir = getcwd;
         # Maybe update
 
     } else {
-        my $cmd = "cvs -d$root co -r$tag $module";
+        my $cmd = "cvs -d$root co $tagArg $module";
         print "$cmd\n";
         open CMD, "$cmd|";
         print while (<CMD>);
