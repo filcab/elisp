@@ -7,6 +7,7 @@
                   (home-dir/ "haskell-mode"))
 
 (add-to-exec-path "/usr/local/bin"
+                  "~/.cabal/bin"
                   "~/coq/bin")
 
 (setq-platform git-load-path
@@ -22,10 +23,10 @@
 (in-platform darwin
   (add-to-exec-path "/opt/local/bin"
                     "/opt/local/sbin"
+                    "/usr/texbin"
                     "/Applications/Dev/Graphviz.app/Contents/MacOS"
                     "~/valgrind/bin"
                     "~/toolchains/bin"
-                    "~/.cabal/bin"
                     "~/dev/stuff/llvm/llvm/tools/clang/utils"
                     "~/llvm/bin")
 
