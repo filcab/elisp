@@ -90,9 +90,16 @@
 ;; (La)TeX editing stuff
 (load "latex-stuff")
 
-;; Hooks
-(load "hooks")
+;; Proced stuff (Emacs 23)
+(defconst fc-proced-format
+  '((user euid) pid tree pcpu pmem rss start state time pri nice
+    (args comm))
+  "My Proced format...")
 
+;;(add-to-list 'proced-format-alist
+;;             (cons 'fc-proced-format fc-proced-format))
+;;
+;; (setq-default proced-format fc-proced-format)
 
 ;; Misc configurations
 (setq inhibit-startup-message t)
@@ -163,6 +170,9 @@
 (add-hook 'eshell-mode-hook
           '(lambda () (define-key eshell-mode-map "\C-a" 'eshell-maybe-bol)))
 
+
+;; Doc-view for viewing PDFs
+(require 'doc-view)
 
 ;; Small major mode configurations
 (setq haskell-program-name "ghci")
@@ -248,3 +258,6 @@
              '("\\.\\(rar\\|RAR\\)\\'" . no-conversion))
 (add-to-list 'auto-mode-alist
              '("\\.\\(rar\\|RAR\\)\\'" . archive-mode))
+
+;; Finally, set up the hooks
+(load "hooks")
