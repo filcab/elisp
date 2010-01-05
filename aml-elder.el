@@ -103,20 +103,35 @@
 (add-hook 'find-file-hooks 'find-file-for-elder)
 (add-hook 'after-save-hook 'save-file-for-elder)
 
-
-(defun maybe-elder-and-TeX-command-master ()
-  (interactive)
+;; FILCAB
+;; Put the elder stuff for LaTeX in an advice for TeX-command-master
+(defadvice TeX-command-master
+  (before maybe-elder-and-TeX-command-master
+          preactivate compile)
+  "If we're in an Elder file, we'll run Elder on it and run
+TeX-command-master on the resulting file"
   (when (string-match "\\.e\\'" buffer-file-name)
     (let ((tex-file (substring buffer-file-name 0 (match-beginning 0))))
       (elder-etex-this-file)
       (let ((*dont-check-elder-file* t))
-	(let ((buffer (find-buffer-visiting tex-file)))
-	  (when buffer
-	    (kill-buffer buffer)))
-	(find-file-read-only-other-window tex-file))))
-  (TeX-command-master))
+        (let ((buffer (find-buffer-visiting tex-file)))
+          (when buffer
+            (kill-buffer buffer)))
+        (find-file-read-only-other-window tex-file)))))
 
-;;
+;; (defun maybe-elder-and-TeX-command-master ()
+;;   (interactive)
+;;   (when (string-match "\\.e\\'" buffer-file-name)
+;;     (let ((tex-file (substring buffer-file-name 0 (match-beginning 0))))
+;;       (elder-etex-this-file)
+;;       (let ((*dont-check-elder-file* t))
+;;         (let ((buffer (find-buffer-visiting tex-file)))
+;;           (when buffer
+;;             (kill-buffer buffer)))
+;;         (find-file-read-only-other-window tex-file))))
+;;   (TeX-command-master))
+
+
 (defun jump-over (text)
   "Remove the region."
   "")
@@ -139,7 +154,7 @@
   rows)
 
 (defmacro* table ((&key column-alignment (cell-key '#'table-cell-element)) &rest args)
-  `(make-table 
+  `(make-table
     :rows (list ,@args)
     :cell-key ,cell-key))
 
