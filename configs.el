@@ -19,8 +19,25 @@
 (load "load-paths")
 
 ;; Private data (IRC, mail, etc.)
+(defvar load-private-retries 3
+  "Number of retries for load-private-data (wrong key, etc).")
 (defun load-private-data ()
-  (load-private "private.el.gpg"))
+  (unless (featurep 'private)
+    (let ((retries load-private-retries))
+      (while (plusp retries)
+        (decf retries)
+        (condition-case condition (load-private "private.el.gpg")
+          (file-error
+           (if (and (equal (cddr condition) (list "Decryption failed"))
+                    (not (zerop retries)))
+               (if (y-or-n-p
+                    "Do you want to flush gpg-agent's cache an retry?")
+                   (call-process "killall" nil t nil
+                                 "gpg-agent")
+                 (signal (car condition) (cdr condition)))
+             (signal (car condition) (cdr condition))))))))
+  t)                                    ; Everything went allright.
+
 ;; We have private data for ERC, GNUS
 (add-hook 'erc-mode-hook #'load-private-data)
 
