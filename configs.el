@@ -203,7 +203,11 @@
 
 ;; Key configurations
 ;; Give M-x compile a better shortcut
-(global-set-key "\C-x\c" #'compile)
+(global-set-key "\C-x\c"
+                (lambda ()
+                  (interactive)
+                  (call-interactively #'compile)
+                  (global-set-key "\C-x\c" #'recompile)))
 
 (global-set-key "\M-s" #'save-buffer)
 (global-set-key "\M-\r" #'toggle-fullscreen)
