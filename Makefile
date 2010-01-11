@@ -32,7 +32,7 @@ build_dvc:
 	${ELISP_CONFIGURE} && time make && make install
 
 build_ecb:
-	cd ecb && \
+	@cd ecb && \
 	make EMACS=$(EMACS) CEDET="$(PWD)/cedet" LOADPATH=`pwd` && \
 	$(EMACS) -batch -no-site-file \
 		 --eval "(add-to-list 'load-path \"`pwd`\")" \
