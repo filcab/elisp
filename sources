@@ -20,8 +20,11 @@ dvc|bzr_tgz|http://bzr.xsteve.at/dvc|http://download.gna.org/dvc/download/dvc-sn
 
 #misc software, I don't know if I'll keep it here...
 #nxhtml|zip|http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-1.87-090708.zip
-#cedet|cvs|:pserver:anonymous@cedet.cvs.sourceforge.net:/cvsroot/cedet|cedet|cedet-1p0pre6
-#ecb|cvs|:pserver:anonymous@ecb.cvs.sourceforge.net:/cvsroot/ecb|ecb|ecb2-40
+# CEDET compiler suite for emacs
+cedet|cvs|:pserver:anonymous@cedet.cvs.sourceforge.net:/cvsroot/cedet|cedet|cedet-1p0pre6
+# ECB - Emacs Code Browser
+ecb|cvs|:pserver:anonymous@ecb.cvs.sourceforge.net:/cvsroot/ecb|ecb|ecb2-40
+
 #jde|svn|https://jdee.svn.sourceforge.net/svnroot/jdee/tags/jde-2.3.5.1
 #extra/quack.el|curl|http://www.neilvandyke.org/quack/quack.el
 

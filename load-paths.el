@@ -147,3 +147,10 @@
       (append
        '(("\\.wrl\\'" . vrml-mode))
        auto-mode-alist))
+
+;; CEDET autoloads
+(load-file (home-dir/ "cedet/common/cedet.el"))
+;; Load ecb (Emacs Code Browser)
+(add-to-load-path (home-dir/ "ecb"))
+(require 'ecb-autoloads)
+
