@@ -48,7 +48,6 @@
 (set-buffer-file-coding-system 'utf-8 'utf-8-unix)
 (set-default buffer-file-coding-system 'utf-8-unix)
 (set-default-coding-systems 'utf-8-unix)
-(set-default default-buffer-file-coding-system 'utf-8-unix)
 ;; Terminal configurations
 (set-terminal-coding-system 'utf-8-unix)
 (set-keyboard-coding-system 'utf-8-unix)
@@ -167,6 +166,9 @@
 (setq scroll-step 1)
 
 (setq-default show-trailing-whitespace t)
+
+;; For M-x compile:
+(setq compilation-window-height 5)
 
 ;; Emacs Lisp auto compile:
 (setq-default auto-compile-when nil)
