@@ -149,7 +149,10 @@
        auto-mode-alist))
 
 ;; CEDET autoloads
+(setq semantic-load-turn-everything-on t)
 (load-file (home-dir/ "cedet/common/cedet.el"))
+;;(require 'cedet) ;; Built into emacs 23... Errors out with semantic-ctxt
+
 ;; Load ecb (Emacs Code Browser)
 (add-to-load-path (home-dir/ "ecb"))
 (require 'ecb-autoloads)
