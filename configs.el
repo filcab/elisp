@@ -31,7 +31,7 @@
            (if (and (equal (cddr condition) (list "Decryption failed"))
                     (not (zerop retries)))
                (if (y-or-n-p
-                    "Do you want to flush gpg-agent's cache an retry?")
+                    "Do you want to flush gpg-agent's cache and retry?")
                    (call-process "killall" nil t nil
                                  "gpg-agent")
                  (signal (car condition) (cdr condition)))
