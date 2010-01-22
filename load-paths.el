@@ -11,7 +11,8 @@
 
 (add-to-exec-path "/usr/local/bin"
                   "~/.cabal/bin"
-                  "~/coq/bin")
+                  "~/coq/bin"
+                  "~/dev/stuff/plt/bin")
 
 ;; (setq-platform git-load-path
 ;;                ((darwin . "")
