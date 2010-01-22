@@ -7,7 +7,8 @@ EL_SITE = $C/site-lisp
 EL_INFO = $C/info
 ELISP_CONFIGURE = ./configure --with-emacs=${EMACS} --prefix=${EL_PREFIX} --bindir=${EL_BINDIR}
 
-BUILD_TARGETS = build_auctex build_haskell-mode build_dvc build_cedet build_ecb
+BUILD_TARGETS = build_auctex build_cedet build_dvc build_ecb \
+                build_haskell-mode build_magit build_mo-git-blame
 
 .PHONY: $(BUILD_TARGETS)
 
@@ -42,5 +43,16 @@ build_haskell-mode:
 	@${EMACS} --eval "(add-to-list 'load-path \"${PWD}/haskell-mode\")" \
 		  --eval '(byte-recompile-directory "${PWD}/haskell-mode" 0)' \
 		  --batch
+
+build_magit:
+	@cd magit && \
+	./autogen.sh && \
+	${ELISP_CONFIGURE} && \
+	time make install
+
+build_mo-git-blame:
+	@${EMACS} --eval "(add-to-list 'load-path \"${PWD}/mo-git-blame\")" \
+	--eval '(byte-recompile-directory "${PWD}/mo-git-blame" 0)' \
+	--batch
 
 
