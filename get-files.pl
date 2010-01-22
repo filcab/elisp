@@ -94,5 +94,14 @@ sub bzr_tgz ($$$$) {
     }
 }
 
+sub git ($$$$) {
+    my $dir = shift, $git_url = shift;
+    return if (-e $dir); # Update?
+
+    open GIT, "git clone $git_url $dir |";
+    print while (<GIT>);
+    close GIT;
+}
+
 print "\n";
 print "Done!\n";
