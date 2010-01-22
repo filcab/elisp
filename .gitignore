@@ -10,6 +10,8 @@ doc-view
 elib
 emms
 git-mode
+magit
+mo-git-blame
 haskell-mode*
 jde
 pov-mode-3.2
