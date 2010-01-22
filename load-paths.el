@@ -1,7 +1,10 @@
 ;; -*- Mode: Emacs-Lisp -*-
 
 (add-to-load-path (home-dir/ "compiled/site-lisp") ;; Compiled AucTeX
+                  (home-dir/ "compiled/share/emacs/site-lisp")
+                  (home-dir/ "mo-git-blame")
                   (home-dir/ "compiled/share/emacs/site-lisp/dvc") ;; DVC
+                  (home-dir/ "ecb")                ;; Emacs Code Browser
                   (home-dir/ "elder")
                   (home-dir/ "color-theme")
                   (home-dir/ "haskell-mode"))
@@ -10,11 +13,11 @@
                   "~/.cabal/bin"
                   "~/coq/bin")
 
-(setq-platform git-load-path
-               ((darwin . (home-dir/ "git-mode"))
-                (windows-nt . "C:/Program Files/Git/contrib")
-		(gnu/linux . "")))
-
+;; (setq-platform git-load-path
+;;                ((darwin . "")
+;;                 (windows-nt . "C:/Program Files/Git/contrib")
+;; 		(gnu/linux . "")))
+;;
 ;;(add-to-load-path git-load-path)
 
 (in-platform fry.l2f.inesc-id.pt
@@ -44,8 +47,8 @@
        '(("\\.dot\\'" . graphviz-dot-mode))
        auto-mode-alist))
 
-
-(autoload 'git-status "git" "GIT mode" t)
+;; To remove...
+;;(autoload 'git-status "git" "GIT mode" t)
 
 ;; autoloads utility functions
 (defun load-def-symbol (load-def)
@@ -148,12 +151,4 @@
        '(("\\.wrl\\'" . vrml-mode))
        auto-mode-alist))
 
-;; CEDET autoloads
-(setq semantic-load-turn-everything-on t)
-(load-file (home-dir/ "cedet/common/cedet.el"))
-;;(require 'cedet) ;; Built into emacs 23... Errors out with semantic-ctxt
-
-;; Load ecb (Emacs Code Browser)
-(add-to-load-path (home-dir/ "ecb"))
-(require 'ecb-autoloads)
 

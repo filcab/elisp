@@ -202,6 +202,21 @@
 ;; Load DVC (Distributed Version Control)
 (load "dvc-load.el")
 
+;; Load Magit (mode for git) and mo-git-blame
+(require 'magit)
+(autoload 'mo-git-blame-file "mo-git-blame" nil t)
+(autoload 'mo-git-blame-current "mo-git-blame" nil t)
+(global-set-key [?\C-c ?g ?c] 'mo-git-blame-current)
+(global-set-key [?\C-c ?g ?f] 'mo-git-blame-file)
+
+
+;; Load CEDET autoloads
+(setq semantic-load-turn-everything-on t)
+(load-file (home-dir/ "cedet/common/cedet.el"))
+;;(require 'cedet) ;; Built into emacs 23... Errors out with semantic-ctxt
+
+;; ECB (Emacs Code Browser)
+(require 'ecb-autoloads)
 
 ;; Key configurations
 ;; Give M-x compile a better shortcut
