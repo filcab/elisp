@@ -29,5 +29,7 @@ cedet|cvs|:pserver:anonymous@cedet.cvs.sourceforge.net:/cvsroot/cedet|cedet|cede
 ecb|cvs|:pserver:anonymous@ecb.cvs.sourceforge.net:/cvsroot/ecb|ecb|ecb2-40
 
 #jde|svn|https://jdee.svn.sourceforge.net/svnroot/jdee/tags/jde-2.3.5.1
-#extra/quack.el|curl|http://www.neilvandyke.org/quack/quack.el
+
+# Quack: Emacs mode for Scheme
+quack.el|curl|http://www.neilvandyke.org/quack/quack.el
 

@@ -54,7 +54,7 @@ sub svn ($$) {
 sub curl($$) {
     my $file = shift, $url = shift;
     return if (-e $file);
-    system("mkdir `dirname $file`");
+    system("mkdir -p `dirname $file`");
     open CURL, "curl -o '$file' '$url'|";
     print while (<CURL>);
 }
