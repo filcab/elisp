@@ -108,7 +108,7 @@
 (autoload 'math "math" "Starts Mathematica" t)
 (autoload 'math-mode "math" 
   "Mode for editing Mathematica.  Loading will result in more info." t)
-(setq auto-mode-alist (append '(("\\.m\\'" . math-mode)
+(setq auto-mode-alist (append '(;;("\\.m\\'" . math-mode) ;; Obective-C first
                                 ("\\.nb\\'" . math-mode))
                                 auto-mode-alist))
 
