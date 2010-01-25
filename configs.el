@@ -191,7 +191,12 @@
 
 
 ;; Doc-view for viewing PDFs
-(require 'doc-view)
+(from-version 23
+   (require 'doc-view))
+
+;; Recent files menu
+(require 'recentf)
+(recentf-mode 1)
 
 ;; Small major mode configurations
 (setq haskell-program-name "ghci")
