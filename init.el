@@ -19,8 +19,6 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(canlock-password "1c5d1c590603119feb2b954caf6d55294f97f4cc")
- '(quack-programs (quote ("~/dev/stuff/plt/bin/mzscheme" "bigloo" "csi" "csi -hygienic" "gosh" "gsi" "gsi ~~/syntax-case.scm -" "guile" "kawa" "mit-scheme" "mred -z" "mzscheme" "mzscheme -M
-    errortrace" "mzscheme3m" "mzschemecgc" "rs" "scheme" "scheme48" "scsh" "sisc" "stklos" "sxi")))
  '(safe-local-variable-values (quote ((TeX-master . t) (TeX-engine . xetex)))))
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
