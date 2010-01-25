@@ -32,6 +32,16 @@
           ((null rest)) ;; Stop
           (t `(in-platforms ,@rest)))))
 
+;; Executes 'body from version 'version onwards
+(defmacro from-version (version &rest body)
+  `(if (>= emacs-major-version ,version)
+       (progn ,@body)
+     (message
+      (concat
+       "The following code was not executed because "
+       "emacs-major-version (%d) < %d\n  %S")
+      emacs-major-version ,version ',body)))
+
 
 (defun add-to-list* (list-var elements &optional append compare-fn)
   "Add several elements to list-var (using add-to-list)."
