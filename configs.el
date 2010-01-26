@@ -94,6 +94,29 @@
   (call-interactively 'gnus)
   (add-hook 'gnus-exit-gnus-hook 'save-buffers-kill-emacs))
 
+;; Spelling stuff
+;; Prefer hunspell
+(defvar ispell-program-name
+  (or (locate-file "hunspell" exec-path exec-suffixes 'file-executable-p)
+      (locate-file "aspell"   exec-path exec-suffixes 'file-executable-p)
+      (locate-file "ispell"   exec-path exec-suffixes 'file-executable-p)
+      "ispell"))
+
+(defvar ispell-local-dictionary-alist
+  '((nil ; default
+     "[A-Za-z]" "[^A-Za-z]" "[']" t
+     ("-d" "en_US" "-i" "utf-8") nil utf-8)
+    ("american" ; Yankee English
+     "[A-Za-z]" "[^A-Za-z]" "[']" t
+     ("-d" "en_US" "-i" "utf-8") nil utf-8)
+    ("british" ; British English
+     "[A-Za-z]" "[^A-Za-z]" "[']" t
+     ("-d" "en_GB" "-i" "utf-8") nil utf-8)
+    ("portugues" ; Portuguese (with local dicts)
+     "[-a-záàãâéêíóõôúçA-ZÁÀÃÂÉÊÍÓÔÕÚ]"
+     "[^-a-záàãâéêíóõôúçA-ZÁÀÃÂÉÊÍÓÔÕÚ]" "" t
+     ("-d" "~/.hunspell/pt_PT" "-i" "utf-8") nil utf-8)))
+
 ;; find-file sudo'ed
 (load "find-file-sudo")
 
