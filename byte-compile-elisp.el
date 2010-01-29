@@ -1,7 +1,7 @@
 ;; -*- Mode: Emacs-Lisp -*-
 
 (when (null argv)
-  (setq argv (directory-files "." nil "^[a-zA-Z0-0].*\.el$")))
+  (setq argv (directory-files "." nil "^[a-zA-Z0-9].*\.el$")))
 
 (dolist (f argv)
   (when (string-equal (file-name-extension f) "el")
