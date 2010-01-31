@@ -95,7 +95,7 @@ For example:
 
 
 (defun toggle-fullscreen ()
-  ;; Only in CarbonEmacs, for now...
+  ;; Only in CarbonEmacs, Aquamacs 2.0 or patched GNU Emacs for now...
   "Toggles fullscreen in emacs"
   (interactive)
   (set-frame-parameter nil
@@ -103,6 +103,16 @@ For example:
                        (if (frame-parameter nil 'fullscreen)
                            nil
                            'fullboth)))
+
+(defun toggle-transparency ()
+  "Toggle transparency on the active frame."
+  (interactive)
+  (set-frame-parameter nil
+                       'alpha
+                       (if (or (not (frame-parameter nil 'alpha))
+                               (/= (car (frame-parameter nil 'alpha)) 100))
+                           '(100 100)
+                         '(85 50))))
 
 (defun copy-line ()
   ;; From aadsm
