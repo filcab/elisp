@@ -244,7 +244,7 @@
 
 
 ;; Load CEDET autoloads
-(setq semantic-load-turn-everything-on t)
+;;(setq semantic-load-turn-everything-on t)
 (load-file (home-dir/ "cedet/common/cedet.el"))
 ;;(require 'cedet) ;; Built into emacs 23... Errors out with semantic-ctxt
 
