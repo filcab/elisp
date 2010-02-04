@@ -106,5 +106,5 @@
              ""))
 
 
-(provide 'google)
-;;; google.el ends here
+(provide 'google-wikipedia)
+

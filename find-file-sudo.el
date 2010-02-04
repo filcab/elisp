@@ -68,3 +68,4 @@
 (add-hook 'find-file-hook 'find-file-hook-root-header-warning)
 
 
+(provide 'find-file-sudo)

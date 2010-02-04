@@ -146,3 +146,4 @@
 
 ;;(load-private "erc-private.el")
 
+(provide 'erc-config)

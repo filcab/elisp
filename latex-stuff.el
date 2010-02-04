@@ -109,3 +109,5 @@
 
 ;; Bind master-file-PDF-other-window in latex-mode
 ;;(local-set-key 'latex-mode-map
+
+(provide 'latex-stuff)

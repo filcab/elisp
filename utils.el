@@ -234,3 +234,16 @@ region. Otherwise, ask for a string."
                    "osascript" "-e"
                    text)))
 
+;; From: http://github.com/alexott/emacs-configs/blob/401826d41e537629a1af75e92fa09d8aef5addc8/rc/emacs-rc-common-hooks.el
+;; show XXX/FIXME/TODO/BUG keywords
+(defun show-prog-keywords ()
+  ;; highlight additional keywords
+  (font-lock-add-keywords
+   nil '(("\\<\\(\\|XXXFIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))
+  (font-lock-add-keywords nil '(("\\<\\(DONE\\):" 1 font-lock-doc-face t)))
+  ;; highlight too long lines
+  (font-lock-add-keywords
+   nil '(("^[^\n]\\{120\\}\\(.*\\)$" 1 font-lock-warning-face t))))
+
+
+(provide 'utils)

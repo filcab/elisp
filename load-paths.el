@@ -153,3 +153,4 @@
        auto-mode-alist))
 
 
+(provide 'load-paths)
