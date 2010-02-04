@@ -19,18 +19,6 @@
             (inferior-slime-mode t)))
 
 
-;;;; C-mode hooks:
-(add-hook 'c-mode-common-hook
-          (lambda ()
-            (local-set-key (kbd "<return>") 'newline-and-indent)
-            (c-set-style "gnu")
-            (setq c-basic-offset 2)
-            (setq c-indent-level 2)
-            (setq c-tab-always-indent t)
-            (setq tab-width 4)
-            ;; indent com tabs
-            (setq indent-tabs-mode nil)
-            (eldoc-mode))) ;; ElDoc
 
 ;;;; Java hooks:
 (add-hook 'java-mode-common-hook
