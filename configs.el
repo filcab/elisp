@@ -13,10 +13,10 @@
 (setq debug-on-error t)
 
 ;; Utility functions/macros
-(load "utils")
+(require 'utils)
 
 ;; Setup load (and exec) paths stuff
-(load "load-paths")
+(require 'load-paths)
 
 ;; Private data (IRC, mail, etc.)
 (defvar load-private-retries 3
@@ -118,16 +118,16 @@
      ("-d" "~/.hunspell/pt_PT" "-i" "utf-8") nil utf-8)))
 
 ;; find-file sudo'ed
-(load "find-file-sudo")
+(require 'find-file-sudo)
 
 ;; Google and wikipedia searches
-(load "google-wikipedia")
+(require 'google-wikipedia)
 
 ;; IRC stuff
-(load "erc-config")
+(require 'erc-config)
 
 ;; (La)TeX editing stuff
-(load "latex-stuff")
+(require 'latex-stuff)
 
 ;; Proced stuff (Emacs 23)
 (defconst fc-proced-format
@@ -325,5 +325,13 @@
 (add-to-list 'auto-mode-alist
              '("\\.\\(rar\\|RAR\\)\\'" . archive-mode))
 
-;; Finally, set up the hooks
-(load "hooks")
+(require 'c-stuff)
+
+;; Set up the hooks
+(require 'hooks)
+
+;; And load the projects.
+(require 'projects)
+
+;; Fighlight FIXME/TODO/XXX/whatever keywords
+(show-prog-keywords)
