@@ -4,7 +4,9 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (setq indent-tabs-mode nil)
-            (auto-compile-mode t)))
+            (auto-compile-mode t)
+
+            (show-prog-keywords)))
 
 
 ;;;; Lisp hooks:
@@ -12,11 +14,13 @@
 
 (add-hook 'slime-repl-mode-hook
           (lambda ()
-            (lisp-mode-more-brackets)))
+            (lisp-mode-more-brackets)
+            (show-prog-keywords)))
 
 (add-hook 'inferior-lisp-mode-hook
           (lambda ()
-            (inferior-slime-mode t)))
+            (inferior-slime-mode t)
+            (show-prog-keywords)))
 
 
 
@@ -30,11 +34,13 @@
             (setq c-tab-always-indent nil)
             (setq tab-width 4)
             ;; indent com tabs
-            (setq indent-tabs-mode nil)))
+            (setq indent-tabs-mode nil)
+            (show-prog-keywords)))
 
 ;;;; Haskell hooks
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+(add-hook 'haskell-mode-hook 'show-prog-keywords)
 ;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
 
 ;;;; (La)TeX hooks
