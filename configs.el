@@ -212,6 +212,11 @@
 (add-hook 'eshell-mode-hook
           '(lambda () (define-key eshell-mode-map "\C-a" 'eshell-maybe-bol)))
 
+;; Tramp completion for my configured hostnames.
+(tramp-set-completion-function
+ "ssh"
+ '((tramp-parse-sconfig "/etc/ssh_config")
+   (tramp-parse-sconfig "~/.ssh/config")))
 
 ;; Doc-view for viewing PDFs
 (from-version 23
