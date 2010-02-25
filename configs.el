@@ -330,6 +330,14 @@
 (add-to-list 'auto-mode-alist
              '("\\.\\(rar\\|RAR\\)\\'" . archive-mode))
 
+;; Archive-mode for iTunes' ipg/ipa files
+;; ZIP will be auto-detected.
+(add-to-list 'auto-coding-alist
+             '("\\.\\(ipg\\|ipa\\)\\'" . no-conversion))
+(add-to-list 'auto-mode-alist
+             '("\\.\\(ipg\\|ipa\\)\\'" . archive-mode))
+
+
 (require 'c-stuff)
 
 ;; Set up the hooks
