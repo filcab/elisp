@@ -3,6 +3,8 @@
 ;; stuff for (La)TeX editing
 ;; by Filipe Cabecinhas
 
+(require 'utils)
+(require 'load-paths)
 
 ;;(require 'auctex)
 (load "auctex.el" nil t t)

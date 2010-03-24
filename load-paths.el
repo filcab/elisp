@@ -1,5 +1,7 @@
 ;; -*- Mode: Emacs-Lisp -*-
 
+(require 'utils)
+
 (add-to-load-path (home-dir/ "compiled/site-lisp") ;; Compiled AucTeX
                   (home-dir/ "compiled/share/emacs/site-lisp")
                   (home-dir/ "mo-git-blame")
@@ -154,3 +156,4 @@
 
 
 (provide 'load-paths)
+
