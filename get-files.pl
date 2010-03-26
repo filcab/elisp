@@ -2,7 +2,16 @@
 
 use Cwd;
 
+#use strict;
+use warnings;
+
 open SOURCES, "<sources" or die $!;
+
+our $update = 0;
+
+if ($#::ARGV == 0) {
+    $update = $::ARGV[0] eq "--update";
+}
 
 while (<SOURCES>) {
     next if /^\s*\#|^\s*$/;
@@ -13,16 +22,33 @@ while (<SOURCES>) {
     if ($#ARGV < 0 or grep(/$dir/, @ARGV)) {
         print "updating\n";
         &{$type}($dir, @arguments);
+    } elsif ($update) {
+        if ($type eq "tgz" or $type eq "zip" or $type eq "curl") {
+            print "skipped\n";
+            next;
+        }
+        print "updating\n";
+        &{$type}($dir, @arguments)
     } else { print "skipped\n"; }
 }
 
 sub cvs ($$$$) {
-    my $dir = shift, $root = shift, $module = shift, $tag = shift;
+    my ($dir, $root, $module, $tag, $tagArg);
+    $dir = shift, $root = shift, $module = shift, $tag = shift;
 
-    if ($tag == "") {
+    if ($tag eq "") {
         $tagArg = "";
     } else {
         $tagArg = "-r$tag";
+    }
+
+    if ($update) {
+        my $cmd = "cvs -d$root co $tagArg $module";
+        print "$cmd\n";
+        open CMD, "$cmd|";
+        print while (<CMD>);
+        
+        return;
     }
 
     if (-e $dir) {
@@ -38,7 +64,16 @@ sub cvs ($$$$) {
 }
 
 sub svn ($$) {
-    my $dir = shift, $repo = shift;
+    my ($dir, $repo);
+    $dir = shift, $repo = shift;
+
+    if ($update) {
+        my $cmd = "svn $dir";
+        open CMD, "$cmd|";
+        print while (<CMD>);
+
+        return;
+    }
 
     if (-e $dir) {
         my $old_dir = getcwd;
@@ -52,16 +87,22 @@ sub svn ($$) {
 }
 
 sub curl($$) {
-    my $file = shift, $url = shift;
+    my ($file, $url);
+    $file = shift, $url = shift;
+
     return if (-e $file);
+
     system("mkdir -p `dirname $file`");
     open CURL, "curl -o '$file' '$url'|";
     print while (<CURL>);
 }
 
 sub tgz ($$$) {
-    my $dir = shift, $url = shift, $res = shift;
+    my ($dir, $url, $res);
+    $dir = shift, $url = shift, $res = shift;
+
     return if (-e $dir);
+
     print "Downloading from: $url\n";
     open CURL, "curl '$url' | tar xvzf -|";
     print while (<CURL>);
@@ -69,8 +110,11 @@ sub tgz ($$$) {
 }
 
 sub zip ($$$) {
-    my $dir = shift, $url = shift, $res = shift;
+    my ($dir, $url, $res);
+    $dir = shift, $url = shift, $res = shift;
+
     return if (-e $dir);
+
     my $tmpf = "tmp.zip";
     print "Downloading from: $url\n";
     open CURL, "curl '$url' -o $tmpf|";
@@ -82,7 +126,17 @@ sub zip ($$$) {
 }
 
 sub bzr_tgz ($$$$) {
-    my $dir = shift, $bzr_url = shift, $tgz_url = shift, $res = shift;
+    my ($dir, $bzr_url, $tgz_url, $res);
+    $dir = shift, $bzr_url = shift, $tgz_url = shift, $res = shift;
+
+    if ($update) {
+        my $cmd = "bzr update $dir";
+        open CMD, "$cmd|";
+        print while (<CMD>);
+ 
+        return;
+    }
+
     return if (-e $dir);
 
     open BZR, "bzr get $bzr_url $dir |";
@@ -95,7 +149,17 @@ sub bzr_tgz ($$$$) {
 }
 
 sub git ($$$$) {
-    my $dir = shift, $git_url = shift;
+    my ($dir, $git_url);
+    $dir = shift, $git_url = shift;
+
+    if ($update) {
+        open GIT, "cd $dir && git pull |";
+        print while (<GIT>);
+        close GIT;
+
+        return;
+    }
+
     return if (-e $dir); # Update?
 
     open GIT, "git clone $git_url $dir |";
@@ -105,3 +169,4 @@ sub git ($$$$) {
 
 print "\n";
 print "Done!\n";
+
