@@ -245,7 +245,7 @@
 
 ;; Load CEDET autoloads
 ;;(setq semantic-load-turn-everything-on t)
-(load-file (home-dir/ "cedet/common/cedet.el"))
+;(load-file (home-dir/ "cedet/common/cedet.el"))
 ;;(require 'cedet) ;; Built into emacs 23... Errors out with semantic-ctxt
 
 ;; ECB (Emacs Code Browser)
@@ -344,7 +344,7 @@
 (require 'hooks)
 
 ;; And load the projects.
-(require 'projects)
+;;(require 'projects)
 
 ;; Fighlight FIXME/TODO/XXX/whatever keywords
 (show-prog-keywords)
