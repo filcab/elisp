@@ -38,6 +38,20 @@
 
 ;; (add-to-list 'TeX-command-list '("View" "%V" TeX-run-discard nil t))
 
+;; Programs which open PDF files
+(in-platform darwin
+  (setq TeX-view-program-list
+        '(("Preview.app" "open -a Preview.app %o")
+          ("Skim" "open -a Skim.app %o")
+          ("displayline" "displayline %n %o %b")
+          ("open" "open %o")))
+
+  (setq TeX-view-program-selection
+        '((output-dvi "open")
+          (output-pdf "open")
+          (output-html "open"))))
+
+
 ;; FIXME: TeX-master-file doesn't work here?
 (defadvice TeX-command-master
   (after TeX-command-master-refresh-doc-view
@@ -85,9 +99,9 @@
 
   (setq-default reftex-cite-format "~\\cite{%l}")
 ;;  (flyspell-buffer)) ;; If it's too slow, just remove this
-  (add-to-list 'TeX-output-view-style
-	       `("^pdf$" "."
-		 ,(concat "%(o?)" open-program " %o")))
+;;  (add-to-list 'TeX-output-view-style
+;;	       `("^pdf$" "."
+;;		 ,(concat "%(o?)" open-program " %o")))
   )
 
 (defun master-file-PDF-other-window ()
