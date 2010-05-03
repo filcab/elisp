@@ -1,4 +1,5 @@
-EMACS = emacs
+#EMACS = emacs
+export EMACS = /Applications/Emacs.app/Contents/MacOS/Emacs
 
 C := ${PWD}/compiled
 EL_PREFIX = $C
