@@ -9,7 +9,8 @@ EL_INFO = $C/info
 ELISP_CONFIGURE = ./configure --with-emacs=${EMACS} --prefix=${EL_PREFIX} --bindir=${EL_BINDIR}
 
 BUILD_TARGETS = build_auctex build_cedet build_dvc build_ecb \
-                build_haskell-mode build_magit build_mo-git-blame
+                build_haskell-mode build_magit build_mo-git-blame \
+                build_markdown-mode
 
 .PHONY: $(BUILD_TARGETS)
 
@@ -54,6 +55,11 @@ build_magit:
 build_mo-git-blame:
 	@${EMACS} --eval "(add-to-list 'load-path \"${PWD}/mo-git-blame\")" \
 	--eval '(byte-recompile-directory "${PWD}/mo-git-blame" 0)' \
+	--batch
+
+build_markdown-mode:
+	@${EMACS} --eval "(add-to-list 'load-path \"${PWD}/markdown-mode\")" \
+	--eval '(byte-recompile-directory "${PWD}/markdown-mode" 0)' \
 	--batch
 
 

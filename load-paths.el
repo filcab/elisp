@@ -9,7 +9,8 @@
                   (home-dir/ "ecb")                ;; Emacs Code Browser
                   (home-dir/ "elder")
                   (home-dir/ "color-theme")
-                  (home-dir/ "haskell-mode"))
+                  (home-dir/ "haskell-mode")
+                  (home-dir/ "markdown-mode"))
 
 (add-to-exec-path "/usr/local/bin"
                   "~/.cabal/bin"
@@ -153,6 +154,11 @@
       (append
        '(("\\.wrl\\'" . vrml-mode))
        auto-mode-alist))
+
+(autoload 'markdown-mode "markdown-mode.el"
+  "Major mode for editing Markdown files" t)
+(setq auto-mode-alist
+      (cons '("\\.md" . markdown-mode) auto-mode-alist))
 
 
 (provide 'load-paths)

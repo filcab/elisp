@@ -33,3 +33,5 @@ ecb|cvs|:pserver:anonymous@ecb.cvs.sourceforge.net:/cvsroot/ecb|ecb|ecb2-40
 # Quack: Emacs mode for Scheme
 quack.el|curl|http://www.neilvandyke.org/quack/quack.el
 
+# Markdown-mode, for formatting Markdown texts
+markdown-mode|git|git://jblevins.org/git/markdown-mode.git
