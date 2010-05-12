@@ -48,7 +48,7 @@
 
   (setq TeX-view-program-selection
         '((output-dvi "open")
-          (output-pdf "open")
+          (output-pdf "Skim")
           (output-html "open"))))
 
 
