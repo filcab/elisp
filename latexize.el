@@ -234,6 +234,9 @@ Returns a list with the LaTeX code and a list of faces used."
 (defun latexize-scheme-code (code-text)
   (latexize-code 'scheme-mode code-text))
 
+(defun latexize-x3d-code (code-text)
+  (latexize-code 'vrml-mode code-text))
+
 (defun latexize-java-code (code-text)
   (latexize-code 'java-mode code-text))
 
