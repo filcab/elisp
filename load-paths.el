@@ -10,7 +10,8 @@
                   (home-dir/ "elder")
                   (home-dir/ "color-theme")
                   (home-dir/ "haskell-mode")
-                  (home-dir/ "markdown-mode"))
+                  (home-dir/ "markdown-mode")
+                  (home-dir/ "jd-el"))
 
 (add-to-exec-path "/usr/local/bin"
                   "~/.cabal/bin"

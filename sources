@@ -35,3 +35,8 @@ quack.el|curl|http://www.neilvandyke.org/quack/quack.el
 
 # Markdown-mode, for formatting Markdown texts
 markdown-mode|git|git://jblevins.org/git/markdown-mode.git
+
+# Google Maps mode & Rainbow mode
+# From: http://julien.danjou.info/google-maps-el.html 
+jd-el|git|git://git.naquadah.org/~jd/jd-el.git
+

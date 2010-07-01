@@ -13,6 +13,7 @@ git-mode
 magit
 mo-git-blame
 haskell-mode*
+jd-el
 jde
 pov-mode-3.2
 quack.el
