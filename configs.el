@@ -239,6 +239,7 @@
 
 ;; Load Magit (mode for git) and mo-git-blame
 (require 'magit)
+(defalias 'git-status 'git-status)
 (autoload 'mo-git-blame-file "mo-git-blame" nil t)
 (autoload 'mo-git-blame-current "mo-git-blame" nil t)
 (global-set-key [?\C-c ?g ?c] 'mo-git-blame-current)
@@ -251,7 +252,7 @@
 ;;(require 'cedet) ;; Built into emacs 23... Errors out with semantic-ctxt
 
 ;; ECB (Emacs Code Browser)
-(require 'ecb-autoloads)
+;;(require 'ecb-autoloads)
 
 ;; Key configurations
 ;; Give M-x compile a better shortcut
