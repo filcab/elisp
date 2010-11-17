@@ -49,4 +49,7 @@
 (add-hook 'LaTeX-mode-hook 'filcab-latex-mode-hook)
 (add-hook 'LaTeX-mode-hook 'show-prog-keywords)
 
+;; Text mode hooks
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+
 (provide 'hooks)
