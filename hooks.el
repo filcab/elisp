@@ -14,12 +14,14 @@
 
 (add-hook 'slime-repl-mode-hook
           (lambda ()
-            (lisp-mode-more-brackets)
+            (if (fboundp 'lisp-mode-more-brackets)
+                (lisp-mode-more-brackets))
             (show-prog-keywords)))
 
 (add-hook 'inferior-lisp-mode-hook
           (lambda ()
-            (inferior-slime-mode t)
+            (if (fboundp 'inferior-slime-mode)
+                (inferior-slime-mode t))
             (show-prog-keywords)))
 
 

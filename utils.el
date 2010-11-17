@@ -123,7 +123,7 @@ For example:
 
 (defun current-itunes-song ()
   "Returns the music currently playing in iTunes"
-  (do-applescript
+  (applescript
    "tell application \"iTunes\"
          set currentTrack to the current track
          set artist_name to the artist of currentTrack
