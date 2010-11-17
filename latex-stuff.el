@@ -39,17 +39,24 @@
 ;; (add-to-list 'TeX-command-list '("View" "%V" TeX-run-discard nil t))
 
 ;; Programs which open PDF files
-(in-platform darwin
+(in-platforms
+ (darwin ;; Mac OS X
   (setq TeX-view-program-list
         '(("Preview.app" "open -a Preview.app %o")
           ("Skim" "open -a Skim.app %o")
           ("displayline" "displayline %n %o %b")
           ("open" "open %o")))
-
   (setq TeX-view-program-selection
         '((output-dvi "open")
           (output-pdf "Skim")
           (output-html "open"))))
+ (fry ;; INESC
+  (setq TeX-view-program-list
+        '(("KDE open" "kde-open %o")
+          ("Okular" "okular %o")))
+  (setq TeX-view-program-selection
+        '((output-pdf "KDE open")
+          (output-html "KDE open")))))
 
 
 ;; FIXME: TeX-master-file doesn't work here?
