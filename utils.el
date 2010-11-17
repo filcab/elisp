@@ -238,9 +238,11 @@ region. Otherwise, ask for a string."
 ;; show XXX/FIXME/TODO/BUG keywords
 (defun show-prog-keywords ()
   ;; highlight additional keywords
-  (font-lock-add-keywords
-   nil '(("\\<\\(\\|XXXFIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t)))
-  (font-lock-add-keywords nil '(("\\<\\(DONE\\):" 1 font-lock-doc-face t)))
+  (font-lock-add-keywords nil
+                          '(("\\<\\(\\|XXX\\|FIXME\\|TODO\\|BUG\\):"
+                             1 font-lock-warning-face t)))
+  (font-lock-add-keywords nil '(("\\<\\(DONE\\):"
+                                 1 font-lock-doc-face t)))
   ;; highlight too long lines
   (font-lock-add-keywords
    nil '(("^[^\n]\\{120\\}\\(.*\\)$" 1 font-lock-warning-face t))))
