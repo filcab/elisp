@@ -176,8 +176,10 @@
 (defun filcab-color-theme ()
   (interactive)
   (color-theme-initialize)
-  (color-theme-dark-blue2)
-  (color-theme-dark-green)) ;; To change some small stuff for the better
+  (if (fboundp 'color-theme-dark-blue2)
+      (color-theme-dark-blue2))
+  (if (fboundp 'color-theme-dark-green)
+      (color-theme-dark-green))) ;; To change some small stuff for the better
 
 ;; Display images
 (auto-image-file-mode t)
