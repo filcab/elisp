@@ -1,5 +1,9 @@
-#EMACS = emacs
-export EMACS = /Applications/Emacs.app/Contents/MacOS/Emacs
+ifeq ($(shell hostname), fry)
+	export EMACS := emacs
+else
+#	ifeq ($(shell hostname), farnsworth)
+	export EMACS := /Applications/Emacs.app/Contents/MacOS/Emacs
+endif
 
 C := ${PWD}/compiled
 EL_PREFIX = $C
@@ -12,9 +16,12 @@ BUILD_TARGETS = build_auctex build_cedet build_dvc build_ecb \
                 build_haskell-mode build_magit build_mo-git-blame \
                 build_markdown-mode build_jd-el
 
-.PHONY: $(BUILD_TARGETS)
+.PHONY: $(BUILD_TARGETS) which all
 
-all: $(BUILD_TARGETS)
+all: which $(BUILD_TARGETS)
+
+which:
+	@echo Using Emacs command \`$(EMACS)\'
 
 build_auctex:
 	@cd auctex && \
