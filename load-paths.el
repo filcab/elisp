@@ -148,6 +148,14 @@
 	  '(lambda ()
 	     (require 'jde)))
 
+;; PHP mode
+(autoload 'php-mode "php-mode")
+(setq auto-mode-alist
+      (append
+       '(("\\.php\\'" . php-mode)
+         ("\\.phtml\\'" . php-mode))
+       auto-mode-alist))
+
 ;; ORG mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 

@@ -16,6 +16,7 @@ mo-git-blame
 haskell-mode*
 jd-el
 jde
+php-mode.el
 pov-mode-3.2
 quack.el
 semantic.cache
