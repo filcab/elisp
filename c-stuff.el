@@ -56,7 +56,7 @@
             ;; Enable the Project management system
             (global-ede-mode 1)
             ;; Enable prototype help and smart completion
-            (semantic-load-enable-code-helpers)
+;            (semantic-load-enable-code-helpers) ;; FILCAB: commented
 
             ;; Set up some keybindings for semantic
             (local-set-key [(control return)] 'semantic-ia-complete-symbol)
