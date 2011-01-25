@@ -50,7 +50,7 @@
         '((output-dvi "open")
           (output-pdf "Skim")
           (output-html "open"))))
- (fry ;; INESC
+ ("fry.l2f.inesc-id.pt" ;; INESC
   (setq TeX-view-program-list
         '(("KDE open" "kde-open %o")
           ("Okular" "okular %o")))
