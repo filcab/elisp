@@ -23,6 +23,7 @@ magit|git|git://gitorious.org/~philjackson/magit/philjacksons-reclone.git
 mo-git-blame|git|git://git.bunkus.org/mo-git-blame.git
 #misc software, I don't know if I'll keep it here...
 #nxhtml|zip|http://ourcomments.org/Emacs/DL/elisp/nxhtml/zip/nxhtml-1.87-090708.zip
+php-mode.el|curl|http://php-mode.svn.sourceforge.net/svnroot/php-mode/tags/php-mode-1.5.0/php-mode.el
 # CEDET compiler suite for emacs
 cedet|cvs|:pserver:anonymous@cedet.cvs.sourceforge.net:/cvsroot/cedet|cedet|cedet-1p0pre6
 # ECB - Emacs Code Browser
