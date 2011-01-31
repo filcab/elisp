@@ -197,10 +197,11 @@
 
 ;; Emacs Lisp auto compile:
 (setq-default auto-compile-when nil)
-(setq-default auto-compile-flag 'compiledp-or-ask)
+;;(setq-default auto-compile-flag 'compiledp-or-ask)
 (setq-default auto-compile-remember nil)
 (setq auto-compile-exclude '("private.el.gpg$"    ; Don't compile private files
                              "ede-projects.el$")) ; Nor EDE project definitions
+(setq auto-compile-include '("\.el$"))
 (autoload 'auto-compile-mode "auto-compile" "Auto compile files" t)
 
 
