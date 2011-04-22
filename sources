@@ -13,6 +13,7 @@ auctex|tgz|http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86.tar.gz|auctex-11.86
 haskell-mode|tgz|http://www.iro.umontreal.ca/~monnier/elisp/haskell-mode-2.4.tar.gz|haskell-mode-2.4
 # Color-theme
 color-theme|tgz|http://mirrors.zerg.biz/nongnu/color-theme/color-theme-6.6.0.tar.gz|color-theme-6.6.0
+solarized|git|git://github.com/sellout/emacs-color-theme-solarized.git
 # Proof-General, for Coq, Isabelle, and other Theorem Provers
 proof-general|tgz|http://proofgeneral.inf.ed.ac.uk/releases/ProofGeneral-3.7.1.tgz|ProofGeneral-3.7.1
 # DVC: Distributed version control

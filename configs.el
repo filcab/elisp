@@ -171,15 +171,17 @@
 (require 'linum)
 
 ;; Color theme
-(require 'color-theme-autoloads "color-theme-autoloads")
-(autoload 'color-theme-hober2 "color-theme-hober2" "Hober's 2nd color-theme")
-(defun filcab-color-theme ()
-  (interactive)
-  (color-theme-initialize)
-  (if (fboundp 'color-theme-dark-blue2)
-      (color-theme-dark-blue2))
-  (if (fboundp 'color-theme-dark-green)
-      (color-theme-dark-green))) ;; To change some small stuff for the better
+;; (require 'color-theme-autoloads "color-theme-autoloads")
+(if (string= (getenv "TERM_PROGRAM") "Apple_Terminal")
+    (progn
+      (color-theme-initialize)
+      (if (fboundp 'color-theme-dark-blue2)
+          (color-theme-dark-blue2))
+      (if (fboundp 'color-theme-dark-green)
+          (color-theme-dark-green))) ;; To change some small stuff
+  (progn
+    (require 'color-theme-solarized)
+    (color-theme-solarized-dark)))
 
 ;; Display images
 (auto-image-file-mode t)
