@@ -12,6 +12,7 @@ elib
 emms
 git-mode
 magit
+matlab-emacs
 mo-git-blame
 haskell-mode*
 jd-el
@@ -25,6 +26,7 @@ image-dired
 games/snake-scores
 proof-general
 cedet
+solarized
 ecb
 /games/bubbles-default-2-10-10-scores
 markdown-mode
