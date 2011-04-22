@@ -14,7 +14,7 @@ ELISP_CONFIGURE = ./configure --with-emacs=${EMACS} --prefix=${EL_PREFIX} --bind
 
 BUILD_TARGETS = build_auctex build_cedet build_dvc build_ecb \
                 build_haskell-mode build_magit build_mo-git-blame \
-                build_markdown-mode build_jd-el
+                build_markdown-mode build_jd-el build_matlab
 
 .PHONY: $(BUILD_TARGETS) which all
 
@@ -72,5 +72,10 @@ build_markdown-mode:
 build_jd-el:
 	@${EMACS} --eval "(add-to-list 'load-path \"${PWD}/jd-el\")" \
 	--eval '(byte-recompile-directory "${PWD}/jd-el" 0)' \
+	--batch
+
+build_matlab:
+	@${EMACS} --eval "(add-to-list 'load-path \"${PWD}/matlab-emacs\")" \
+	--eval '(byte-recompile-directory "${PWD}/matlab-emacs" 0)' \
 	--batch
 

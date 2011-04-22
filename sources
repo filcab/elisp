@@ -41,3 +41,6 @@ markdown-mode|git|git://jblevins.org/git/markdown-mode.git
 # From: http://julien.danjou.info/google-maps-el.html 
 jd-el|git|git://git.naquadah.org/~jd/jd-el.git
 
+# MATLAB-emacs
+matlab|cvs|:pserver:anonymous@matlab-emacs.cvs.sourceforge.net:/cvsroot/matlab-emacs|matlab-emacs|HEAD
+

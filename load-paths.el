@@ -12,7 +12,9 @@
                   (home-dir/ "color-theme")
                   (home-dir/ "haskell-mode")
                   (home-dir/ "markdown-mode")
-                  (home-dir/ "jd-el"))
+                  (home-dir/ "jd-el")
+                  (home-dir/ "matlab-emacs")
+                  (home-dir/ "solarized"))
 
 (add-to-exec-path "/usr/local/bin"
                   "~/.cabal/bin"
@@ -37,7 +39,8 @@
                     "~/valgrind/bin"
                     "~/toolchains/bin"
                     "~/dev/stuff/llvm/llvm/tools/clang/utils"
-                    "~/llvm/bin")
+                    "~/llvm/bin"
+                    "/Applications/Dev/MATLAB_R2010b.app/bin")
 
   (add-to-load-path ;;(home-dir/ "auctex")
 
@@ -111,7 +114,7 @@
 	     auto-mode-alist))
 
 (autoload 'math "math" "Starts Mathematica" t)
-(autoload 'math-mode "math" 
+(autoload 'math-mode "math"
   "Mode for editing Mathematica.  Loading will result in more info." t)
 (setq auto-mode-alist (append '(;;("\\.m\\'" . math-mode) ;; Obective-C first
                                 ("\\.nb\\'" . math-mode))

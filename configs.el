@@ -351,5 +351,7 @@
 ;; And load the projects.
 ;;(require 'projects)
 
+(require 'matlab-load)
+
 ;; Fighlight FIXME/TODO/XXX/whatever keywords
 (show-prog-keywords)
