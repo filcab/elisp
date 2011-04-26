@@ -8,6 +8,7 @@ auctex-src
 color-theme
 doc-view
 dvc
+ede-projects.el
 elib
 emms
 git-mode
