@@ -39,7 +39,7 @@
   t)                                    ; Everything went allright.
 
 ;; We have private data for ERC, GNUS
-(add-hook 'erc-mode-hook #'load-private-data)
+;;(add-hook 'erc-mode-hook #'load-private-data)
 
 
 ;;;; Main configs
