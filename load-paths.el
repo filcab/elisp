@@ -29,7 +29,9 @@
 ;;(add-to-load-path git-load-path)
 
 (in-platform fry.l2f.inesc-id.pt
-  (add-to-load-path "/usr/share/xemacs/xemacs-packages/lisp/text-modes"))
+  (add-to-load-path "/usr/share/xemacs/xemacs-packages/lisp/text-modes"
+                    "~/.cabal/share/ghc-mod-0.5.5")
+  (add-to-exec-path "~/.cabal/bin"))
 
 (in-platform darwin
   (add-to-exec-path "/opt/local/bin"
