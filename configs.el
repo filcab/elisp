@@ -181,7 +181,9 @@
           (color-theme-dark-green))) ;; To change some small stuff
   (progn
     (require 'color-theme-solarized)
-    (color-theme-solarized-dark)))
+    (in-platforms
+     (darwin (color-theme-solarized-dark))
+     (linux (color-theme-solarized-light)))))
 
 ;; Display images
 (auto-image-file-mode t)
