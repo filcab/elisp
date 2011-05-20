@@ -183,7 +183,7 @@
     (require 'color-theme-solarized)
     (in-platforms
      (darwin (color-theme-solarized-dark))
-     (linux (color-theme-solarized-light)))))
+     (gnu/linux (color-theme-solarized-light)))))
 
 ;; Display images
 (auto-image-file-mode t)
