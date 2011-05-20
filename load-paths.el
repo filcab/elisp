@@ -17,7 +17,6 @@
                   (home-dir/ "solarized"))
 
 (add-to-exec-path "/usr/local/bin"
-                  "~/.cabal/bin"
                   "~/coq/bin"
                   "~/dev/stuff/plt/bin")
 
@@ -40,15 +39,16 @@
                     "~/toolchains/bin"
                     "~/dev/stuff/llvm/llvm/tools/clang/utils"
                     "~/llvm/bin"
-                    "/Applications/Dev/MATLAB_R2010b.app/bin")
+                    "/Applications/Dev/MATLAB_R2010b.app/bin"
+                    "~/Library/Haskell/bin")
 
   (add-to-load-path ;;(home-dir/ "auctex")
-
-;;                    (home-dir/ "pov-mode-3.2")
-;;                    (home-dir/ "jde/lisp")
-                    "~/dev/slime"
-;;                    (home-dir/ "emms/lisp")
-))
+   "~/Library/Haskell/ghc-7.0.3/lib/ghc-mod-0.5.5/share"
+;;   (home-dir/ "pov-mode-3.2")
+;;   (home-dir/ "jde/lisp")
+;;   (home-dir/ "dev/slime")
+;;   (home-dir/ "emms/lisp")
+  ))
 
 (autoload 'graphviz-dot-mode "graphviz-dot-mode")
 (setq auto-mode-alist
@@ -125,6 +125,8 @@
 (defvar haskell-autoloads
   '(haskell-mode turn-on-haskell-ghci))
 (autoloads haskell-autoloads "haskell-site-file" "Haskell mode." t)
+(autoload 'ghc-init "ghc" nil t) ;; ghc-mod
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
 (setq auto-mode-alist
       (append

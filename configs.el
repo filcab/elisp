@@ -174,7 +174,8 @@
 ;; (require 'color-theme-autoloads "color-theme-autoloads")
 (if (string= (getenv "TERM_PROGRAM") "Apple_Terminal")
     (progn
-      (color-theme-initialize)
+      (if (fboundp 'color-theme-initialize)
+          (color-theme-initialize))
       (if (fboundp 'color-theme-dark-blue2)
           (color-theme-dark-blue2))
       (if (fboundp 'color-theme-dark-green)
