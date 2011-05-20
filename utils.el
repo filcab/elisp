@@ -9,6 +9,10 @@
     nil))
 
 ;; Macros for platform independence
+(defun is-platform (platform)
+  (or (string= system-name platform)
+      (eq system-type platform)))
+
 (defmacro setq-platform (symbol defs)
   `(setq ,symbol
          ,(or (cdr (assoc system-name defs))
@@ -18,16 +22,14 @@
                system-name system-type defs))))
 
 (defmacro in-platform (platform &rest body)
-  (if (or (string= system-name platform)
-          (eq system-type platform))
+  (if (is-platform platform)
       `(progn ,@body)))
 
 
 (defmacro in-platforms (plat-body &rest rest)
   (let ((platform (car plat-body))
         (body (cdr plat-body)))
-    (cond ((or (string= system-name platform)
-               (eq system-type platform))
+    (cond ((is-platform platform)
            `(progn ,@body))
           ((null rest)) ;; Stop
           (t `(in-platforms ,@rest)))))
