@@ -13,13 +13,13 @@
   (or (string= system-name platform)
       (eq system-type platform)))
 
-(defmacro setq-platform (symbol defs)
+(defmacro setq-platform (symbol &rest defs)
   `(setq ,symbol
-         ,(or (cdr (assoc system-name defs))
-              (cdr (assoc system-type defs))
-              (error
-               "System name (%s) and System type (%s) not found in:\n  %s."
-               system-name system-type defs))))
+         ,@(or (cdr (assoc system-name defs))
+               (cdr (assoc system-type defs))
+               (error
+                "System name (%s) and System type (%s) not found in:\n  %s."
+                system-name system-type defs))))
 
 (defmacro in-platform (platform &rest body)
   (if (is-platform platform)

@@ -171,7 +171,8 @@
 (require 'linum)
 
 ;; Color theme
-;; (require 'color-theme-autoloads "color-theme-autoloads")
+;;(require 'color-theme-autoloads "color-theme-autoloads")
+(require 'color-theme)
 (if (string= (getenv "TERM_PROGRAM") "Apple_Terminal")
     (progn
       (if (fboundp 'color-theme-initialize)
@@ -185,6 +186,11 @@
     (in-platforms
      (darwin (color-theme-solarized-dark))
      (gnu/linux (color-theme-solarized-light)))))
+
+;; ;; flymake error colors: (solarized is not working well for this)
+(custom-set-faces
+ '(flymake-errline ((((class color)) (:background "salmon" :underline "OrangeRed"))))
+ '(flymake-warnline ((((class color)) (:background "LightBlue2" :underline "Yellow")))))
 
 ;; Display images
 (auto-image-file-mode t)
@@ -201,8 +207,8 @@
 (setq compilation-window-height 5)
 
 ;; Emacs Lisp auto compile:
-(setq-default auto-compile-when nil)
-;;(setq-default auto-compile-flag 'compiledp-or-ask)
+;;(setq-default auto-compile-when nil)
+(setq-default auto-compile-flag 'compiledp-or-ask)
 (setq-default auto-compile-remember nil)
 (setq auto-compile-exclude '("private.el.gpg$"    ; Don't compile private files
                              "ede-projects.el$")) ; Nor EDE project definitions
@@ -239,7 +245,9 @@
 (setq haskell-program-name "ghci")
 
 ;; SVN
-(setq svn-status-svn-executable "/opt/local/bin/svn")
+(setq-platform svn-status-svn-executable
+    (darwin "/opt/local/bin/svn")
+    (gnu/linux "/usr/bin/svn"))
 
 ;; Load DVC (Distributed Version Control)
 (load "dvc-load.el")
