@@ -55,7 +55,7 @@ build_haskell-mode:
 
 build_magit:
 	@cd magit && \
-	echo ./autogen.sh && \
+	./autogen.sh && \
 	${ELISP_CONFIGURE} && \
 	time make install
 
