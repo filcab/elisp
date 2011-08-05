@@ -14,7 +14,8 @@
                   (home-dir/ "markdown-mode")
                   (home-dir/ "jd-el")
                   (home-dir/ "matlab-emacs")
-                  (home-dir/ "solarized"))
+                  (home-dir/ "solarized")
+                  (home-dir/ "llvm"))
 
 (add-to-exec-path "/usr/local/bin"
                   "~/coq/bin"
@@ -92,6 +93,18 @@
 	      (load-def-description load-def description)
 	      (load-def-interactivep interactive interactive)))
 	  load-defs))
+
+;; Autoload llvm stuff
+(autoload 'llvm-mode "llvm mode" "LLVM" t)
+(setq auto-mode-alist
+      (append
+       '(("\\.ll$" . llvm-mode))
+       auto-mode-alist))
+(autoload 'tablegen-mode "tablegen mode" "TableGen" t)
+(setq auto-mode-alist
+      (append
+       '(("\\.td$" . tablegen-mode))
+       auto-mode-alist))
 
 ;; Autoload lisp stuff
 (defvar lisp-autoloads

@@ -7,6 +7,9 @@
 
 ;; Different completion Interfaces
 
+;; Clang completion:
+(load-library "clang-completion-mode")
+
 ;; Here are a few tools available in CEDET/Semantic for performing completion.
 
 ;; Start inline completion
@@ -74,6 +77,8 @@
 ;;            (eldoc-mode))) ;; ElDoc
 
 
+;; LLVM code conventions
+(load (home-dir/ "llvm/emacs"))
 
 
 (provide 'c-stuff)
