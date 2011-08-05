@@ -7,8 +7,8 @@
 (require 'load-paths)
 
 ;;(require 'auctex)
-(load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
+(when (and (load "auctex.el" t t t)
+           (load "preview-latex.el" t t t))
 
 ;;(setq TeX-engine 'xetex)
 (setq-default TeX-engine 'xetex)
@@ -133,4 +133,5 @@
 ;; Bind master-file-PDF-other-window in latex-mode
 ;;(local-set-key 'latex-mode-map
 
+) ;; (when (and (load "latex.el" …
 (provide 'latex-stuff)

@@ -250,11 +250,11 @@
     (gnu/linux "/usr/bin/svn"))
 
 ;; Load DVC (Distributed Version Control)
-(load "dvc-load.el")
+(load "dvc-load.el" t)
 
 ;; Load Magit (mode for git) and mo-git-blame
 (require 'magit)
-(defalias 'git-status 'git-status)
+;;(defalias 'git-status 'git-status)
 (autoload 'mo-git-blame-file "mo-git-blame" nil t)
 (autoload 'mo-git-blame-current "mo-git-blame" nil t)
 (global-set-key [?\C-c ?g ?c] 'mo-git-blame-current)
