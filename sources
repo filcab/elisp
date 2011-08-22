@@ -45,3 +45,6 @@ jd-el|git|git://git.naquadah.org/~jd/jd-el.git
 # MATLAB-emacs
 matlab|cvs|:pserver:anonymous@matlab-emacs.cvs.sourceforge.net:/cvsroot/matlab-emacs|matlab-emacs|HEAD
 
+# Nyan cat mode
+nyan-mode|git|git://github.com/TeMPOraL/nyan-mode.git
+

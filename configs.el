@@ -368,3 +368,7 @@
 
 ;; Fighlight FIXME/TODO/XXX/whatever keywords
 (show-prog-keywords)
+
+(require 'nyan-mode)
+(nyan-mode)
+(nyan-start-animation)

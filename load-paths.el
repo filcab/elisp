@@ -15,7 +15,8 @@
                   (home-dir/ "jd-el")
                   (home-dir/ "matlab-emacs")
                   (home-dir/ "solarized")
-                  (home-dir/ "llvm"))
+                  (home-dir/ "llvm")
+                  (home-dir/ "nyan-mode"))
 
 (add-to-exec-path "/usr/local/bin"
                   "~/coq/bin"
