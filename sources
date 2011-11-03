@@ -48,3 +48,6 @@ matlab|cvs|:pserver:anonymous@matlab-emacs.cvs.sourceforge.net:/cvsroot/matlab-e
 # Nyan cat mode
 nyan-mode|git|git://github.com/TeMPOraL/nyan-mode.git
 
+# ack (grep replacement) mode.
+full-ack|git|git://github.com/nschum/full-ack.git
+
