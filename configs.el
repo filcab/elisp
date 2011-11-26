@@ -59,29 +59,29 @@
 (iswitchb-mode t)
 
 ;; ;; ido mode                          ;; NEW!
-;; (ido-mode t)
-;; (setq ;; Use it for many file dialogs
-;;       ido-everywhere t
-;;       ;; Don’t be case sensitive
-;;       ido-case-fold t
+(ido-mode t)
+(setq ;; Use it for many file dialogs
+      ido-everywhere t
+      ;; Don’t be case sensitive
+      ido-case-fold t
 ;;       ;; If the file at point exists, use that
 ;;       ido-use-filename-at-point t
-;;       ;; Or if it is an URL…
-;;       ido-use-url-at-point t
-;;       ;; Try dotfiles too
-;;       ido-enable-dot-prefix t
+      ;; Or if it is an URL…
+      ido-use-url-at-point t
+      ;; Try dotfiles too
+      ido-enable-dot-prefix t
 ;;       ;; Only do it if the file begins
 ;;       ;; with the typed characters
 ;;       ido-enable-prefix t
-;;       ;; Even if TAB completes uniquely,
-;;       ;; still wait for RET
-;;       ido-confirm-unique-completion t
-;;       ;; If the input does not exist,
-;;       ;; don’t look in unexpected places.
-;;       ;; I probably want a new file.
-;;       ido-auto-merge-work-directories-length -1)
+      ;; Even if TAB completes uniquely,
+      ;; still wait for RET
+      ido-confirm-unique-completion t
+      ;; If the input does not exist,
+      ;; don’t look in unexpected places.
+      ;; I probably want a new file.
+      ido-auto-merge-work-directories-length -1)
 
-;; (setq ido-enable-flex-matching nil)
+(setq ido-enable-flex-matching nil)
 
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'reverse)
