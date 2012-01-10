@@ -42,13 +42,13 @@
 (in-platforms
  (darwin ;; Mac OS X
   (setq TeX-view-program-list
-        '(("Preview.app" "open -a Preview.app %o")
+        '(("Preview" "open -a Preview.app %o")
           ("Skim" "open -a Skim.app %o")
           ("displayline" "displayline %n %o %b")
           ("open" "open %o")))
   (setq TeX-view-program-selection
         '((output-dvi "open")
-          (output-pdf "Skim")
+          (output-pdf "Preview")
           (output-html "open"))))
  ("fry.l2f.inesc-id.pt" ;; INESC
   (setq TeX-view-program-list
