@@ -1,0 +1,9 @@
+#!/bin/sh
+
+curl -s http://emacsformacosx.com/atom/release |
+  grep -E 'title|link' |    # Get the titles and links of each item
+  head -n 3 |  # The first 3 lines have the version and URL
+  awk -F'[ <]' '{ if (/Version/) print $8; if (/link/) print $8 }' | #data
+  sed -e 's/^[^"]*"//;s/"\/>$//' # Remove quotes from URL
+
+
