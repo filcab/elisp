@@ -97,10 +97,14 @@
 ;; Spelling stuff
 ;; Prefer hunspell
 (defvar ispell-program-name
-  (or (locate-file "hunspell" exec-path exec-suffixes 'file-executable-p)
+  (or ;;(locate-file "hunspell" exec-path exec-suffixes 'file-executable-p)
       (locate-file "aspell"   exec-path exec-suffixes 'file-executable-p)
       (locate-file "ispell"   exec-path exec-suffixes 'file-executable-p)
       "ispell"))
+
+(setq ispell-really-aspell (string-match "aspell$" ispell-program-name)
+      ispell-really-hunspell (string-match "hunspell$" ispell-program-name))
+
 
 (defvar ispell-local-dictionary-alist
   '((nil ; default
