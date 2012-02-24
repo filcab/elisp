@@ -51,7 +51,7 @@
             (c-set-style "gnu")
             (setq c-basic-offset 2)
             (setq c-indent-level 2)
-            (setq c-tab-always-indent t)
+            (setq c-tab-always-indent 'complete)
             (setq tab-width 4)
             ;; indent com tabs
             (setq indent-tabs-mode nil)

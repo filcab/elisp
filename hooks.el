@@ -33,7 +33,7 @@
             (local-set-key (kbd "<return>") 'newline-and-indent)
             (setq c-basic-offset 4)
             (setq c-indent-level 4)
-            (setq c-tab-always-indent nil)
+            (setq c-tab-always-indent 'complete)
             (setq tab-width 4)
             ;; indent com tabs
             (setq indent-tabs-mode nil)
