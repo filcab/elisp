@@ -139,7 +139,7 @@ sub bzr_tgz ($$$$) {
 
     return if (-e $dir);
 
-    open BZR, "bzr get $bzr_url $dir |";
+    open BZR, "bzr branch $bzr_url $dir |";
     print while (<BZR>);
     close BZR;
     unless ($? == 0) {
