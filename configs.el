@@ -326,7 +326,7 @@
 (setq require-final-newline t)
 
 (in-platform darwin
-  (require 'growl)
+  ;;(require 'growl)
   ;; Mac OS X configurations
   (setq mac-pass-command-to-system nil)   ; avoid hiding with M-h
   (setq mac-command-modifier 'meta)       ; muscular memory, already in
