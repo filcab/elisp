@@ -43,7 +43,7 @@ markdown-mode|git|git://jblevins.org/git/markdown-mode.git
 jd-el|git|git://git.naquadah.org/~jd/jd-el.git
 
 # MATLAB-emacs
-matlab|cvs|:pserver:anonymous@matlab-emacs.cvs.sourceforge.net:/cvsroot/matlab-emacs|matlab-emacs|HEAD
+#matlab|cvs|:pserver:anonymous@matlab-emacs.cvs.sourceforge.net:/cvsroot/matlab-emacs|matlab-emacs|HEAD
 
 # Nyan cat mode
 nyan-mode|git|git://github.com/TeMPOraL/nyan-mode.git
