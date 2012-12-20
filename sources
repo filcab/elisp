@@ -32,6 +32,10 @@ ecb|cvs|:pserver:anonymous@ecb.cvs.sourceforge.net:/cvsroot/ecb|ecb|ecb2-40
 
 #jde|svn|https://jdee.svn.sourceforge.net/svnroot/jdee/tags/jde-2.3.5.1
 
+# Python-mode (better than python.el)
+python-mode|bzr_tgz|lp:python-mode|https://launchpad.net/python-mode/trunk/6.1.0/+download/python-mode.el-6.1.0.tar.gz
+ipython.el|curl|https://raw.github.com/ipython/ipython/master/docs/emacs/ipython.el
+
 # Quack: Emacs mode for Scheme
 quack.el|curl|http://www.neilvandyke.org/quack/quack.el
 
