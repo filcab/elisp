@@ -296,6 +296,7 @@
 
 (global-set-key [(control tab)] 'other-window) ;ctrl+(shift+)tab para os buffers
 ;;(global-set-key [(control shift tab)] 'other-buffer)
+(global-set-key "\M-`" 'other-frame)
 
 (global-set-key [(control x) (control r)] 'find-file-root)
 
