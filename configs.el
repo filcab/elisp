@@ -370,8 +370,14 @@
 
 (require 'matlab-load)
 
-;; Fighlight FIXME/TODO/XXX/whatever keywords
+;; Highlight FIXME/TODO/XXX/whatever keywords
 (show-prog-keywords)
+
+(require 'python-mode)
+(require 'ipython)
+(require 'python-pep8)
+(require 'python-pylint)
+
 
 (require 'nyan-mode)
 (nyan-mode)

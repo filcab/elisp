@@ -17,7 +17,8 @@
                   (home-dir/ "solarized")
                   (home-dir/ "llvm")
                   (home-dir/ "nyan-mode")
-                  (home-dir/ "full-cak"))
+                  (home-dir/ "full-ack")
+                  (home-dir/ "python-mode"))
 
 (add-to-exec-path "/usr/local/bin"
                   "~/coq/bin"
@@ -151,6 +152,10 @@
 	 ("\\.lhs\\'" . haskell-mode))
        auto-mode-alist))
 
+;; Python stuff
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+
+
 ;; Autoload Theorem Proving stuff
 (defvar thm-proving-autoloads
   '(proof-splash-display-screen coq-mode isar-mode))
@@ -191,6 +196,7 @@
   "Major mode for editing Markdown files" t)
 (setq auto-mode-alist
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
 
 
 (provide 'load-paths)
