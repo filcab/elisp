@@ -12,6 +12,10 @@
 ;; When debugging
 (setq debug-on-error t)
 
+;; Setup emacs server
+(load "server")
+(unless (server-running-p) (server-start))
+
 ;; Utility functions/macros
 (require 'utils)
 
