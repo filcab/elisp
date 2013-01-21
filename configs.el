@@ -331,7 +331,7 @@
 (setq require-final-newline t)
 
 (in-platform darwin
-  (require 'growl)
+  ;;(require 'growl)
   ;; Mac OS X configurations
   (setq mac-pass-command-to-system nil)   ; avoid hiding with M-h
   (setq mac-command-modifier 'meta)       ; muscular memory, already in
@@ -375,8 +375,14 @@
 
 (require 'matlab-load)
 
-;; Fighlight FIXME/TODO/XXX/whatever keywords
+;; Highlight FIXME/TODO/XXX/whatever keywords
 (show-prog-keywords)
+
+(require 'python-mode)
+(require 'ipython)
+(require 'python-pep8)
+(require 'python-pylint)
+
 
 (require 'nyan-mode)
 (nyan-mode)

@@ -32,6 +32,10 @@ ecb|cvs|:pserver:anonymous@ecb.cvs.sourceforge.net:/cvsroot/ecb|ecb|ecb2-40
 
 #jde|svn|https://jdee.svn.sourceforge.net/svnroot/jdee/tags/jde-2.3.5.1
 
+# Python-mode (better than python.el)
+python-mode|bzr_tgz|lp:python-mode|https://launchpad.net/python-mode/trunk/6.1.0/+download/python-mode.el-6.1.0.tar.gz
+ipython.el|curl|https://raw.github.com/ipython/ipython/master/docs/emacs/ipython.el
+
 # Quack: Emacs mode for Scheme
 quack.el|curl|http://www.neilvandyke.org/quack/quack.el
 
@@ -43,7 +47,7 @@ markdown-mode|git|git://jblevins.org/git/markdown-mode.git
 jd-el|git|git://git.naquadah.org/~jd/jd-el.git
 
 # MATLAB-emacs
-matlab|cvs|:pserver:anonymous@matlab-emacs.cvs.sourceforge.net:/cvsroot/matlab-emacs|matlab-emacs|HEAD
+#matlab|cvs|:pserver:anonymous@matlab-emacs.cvs.sourceforge.net:/cvsroot/matlab-emacs|matlab-emacs|HEAD
 
 # Nyan cat mode
 nyan-mode|git|git://github.com/TeMPOraL/nyan-mode.git

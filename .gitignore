@@ -33,4 +33,5 @@ solarized
 ecb
 /games/bubbles-default-2-10-10-scores
 markdown-mode
-
+python-mode
+ipython.el

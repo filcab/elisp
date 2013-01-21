@@ -14,6 +14,7 @@ DIR=~/.emacs.d
 	--eval "(add-to-list 'load-path \"$DIR\")" \
         --eval '(load "utils.el")' \
 	--eval '(load "load-paths.el")' \
+    --eval '(load "configs.el")' \
 	--eval "(byte-recompile-directory \"${DIR}\" 0)" \
 	--batch
 
