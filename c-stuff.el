@@ -57,19 +57,20 @@
             (setq indent-tabs-mode nil)
 
             ;; Enable the Project management system
-            (global-ede-mode 1)
+            ;; (global-ede-mode 1)
+
             ;; Enable prototype help and smart completion
 ;            (semantic-load-enable-code-helpers) ;; FILCAB: commented
 
             ;; Set up some keybindings for semantic
-            (local-set-key [(control return)] 'semantic-ia-complete-symbol)
-            (local-set-key "\C-c?" 'semantic-ia-complete-symbol-menu)
-            (local-set-key "\C-c>" 'semantic-complete-analyze-inline)
-            (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle)
+            ;; (local-set-key [(control return)] 'semantic-ia-complete-symbol)
+            ;; (local-set-key "\C-c?" 'semantic-ia-complete-symbol-menu)
+            ;; (local-set-key "\C-c>" 'semantic-complete-analyze-inline)
+            ;; (local-set-key "\C-cp" 'semantic-analyze-proto-impl-toggle)
 
             ;; Set up some self-insert for semantic completion when using C/C++
-            (local-set-key "." 'semantic-complete-self-insert)
-            (local-set-key ">" 'semantic-complete-self-insert)
+            ;; (local-set-key "." 'semantic-complete-self-insert)
+            ;; (local-set-key ">" 'semantic-complete-self-insert)
 
             (show-prog-keywords)))
 
