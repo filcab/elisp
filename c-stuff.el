@@ -10,6 +10,11 @@
 ;; Clang completion:
 (load-library "clang-completion-mode")
 
+;; clang-format
+(load (home-dir/ "clang-format.el"))
+(global-set-key [C-M-tab] 'clang-format-region)
+(global-set-key [C-M-S-tab] 'clang-format-buffer)
+
 ;; Here are a few tools available in CEDET/Semantic for performing completion.
 
 ;; Start inline completion
