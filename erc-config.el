@@ -14,17 +14,17 @@
 ;(setq erc-auto-query 'bury)  ; private messages displayed in another buffer
 
 ;; Notify when my nick is mentioned
-(defun my-notify-erc (match-type nickuserhost message)
-  "Notify when a message is received."
-  (growl (format "%s in %s"
-                 ;; Username of sender
-                 (car (split-string nickuserhost "!"))
-                 ;; Channel
-                 (or (erc-default-target) "#unknown"))
-         ;; Remove duplicate spaces
-         (replace-regexp-in-string " +" " " message)))
+;; (defun my-notify-erc (match-type nickuserhost message)
+;;   "Notify when a message is received."
+;;   (growl (format "%s in %s"
+;;                  ;; Username of sender
+;;                  (car (split-string nickuserhost "!"))
+;;                  ;; Channel
+;;                  (or (erc-default-target) "#unknown"))
+;;          ;; Remove duplicate spaces
+;;          (replace-regexp-in-string " +" " " message)))
 
-(add-hook 'erc-text-matched-hook 'my-notify-erc)
+;; (add-hook 'erc-text-matched-hook 'my-notify-erc)
 
 
 ;; Log stuff
@@ -35,8 +35,7 @@
 (defun erc-save-buffers-in-logs ()
   (interactive)
   (mapc (lambda(buf)
-	  (save-excursion
-	    (set-buffer buf)
+	  (with-current-buffer
 	    (erc-save-buffer-in-logs)))
 	(erc-buffer-filter (lambda() t))))
 
@@ -88,11 +87,13 @@
      (interactive "p")
      (if (not (= 1 arg))
          (call-interactively 'erc)
-       (erc :server ,server :port ,port :nick ,nick))))
+       ,(if (= port 6697)
+            `(erc-tls :server ,server :port ,port :nick ,nick)
+          `(erc :server ,server :port ,port :nick ,nick)))))
 
-(de-erc-connect erc-freenode "irc.freenode.net" 6667 "filcab")
-(de-erc-connect erc-llvm "irc.oftc.net" 6667 "filcab")
-(de-erc-connect erc-quakenet "irc.quakenet.org" 6667 "filcab")
+(de-erc-connect erc-freenode "irc.freenode.net" 6697 "filcab")
+(de-erc-connect erc-llvm "irc.oftc.net" 6697 "filcab")
+;(de-erc-connect erc-quakenet "irc.quakenet.org" 6667 "filcab")
 
 
 ;(setq erc-default-connections '(erc-freenode erc-llvm))
