@@ -373,7 +373,7 @@
 ;; And load the projects.
 ;;(require 'projects)
 
-(require 'matlab-load)
+;;(require 'matlab-load)
 
 ;; Highlight FIXME/TODO/XXX/whatever keywords
 (show-prog-keywords)
