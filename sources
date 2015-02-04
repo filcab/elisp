@@ -7,7 +7,7 @@
 # AucTeX (CVS release)
 #auctex|cvs|:pserver:anonymous@cvs.savannah.gnu.org:/sources/auctex|auctex|HEAD
 # AucTeX (release)
-auctex|tgz|http://ftp.gnu.org/pub/gnu/auctex/auctex-11.86.tar.gz|auctex-11.86
+auctex|tgz|http://ftp.gnu.org/pub/gnu/auctex/auctex-11.88.tar.gz|auctex-11.88
 
 # Haskell-mode release
 haskell-mode|tgz|http://www.iro.umontreal.ca/~monnier/elisp/haskell-mode-2.4.tar.gz|haskell-mode-2.4
