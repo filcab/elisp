@@ -7,12 +7,12 @@
 # AucTeX (CVS release)
 #auctex|cvs|:pserver:anonymous@cvs.savannah.gnu.org:/sources/auctex|auctex|HEAD
 # AucTeX (release)
-auctex|tgz|http://ftp.gnu.org/pub/gnu/auctex/auctex-11.88.tar.gz|auctex-11.88
+auctex|tgz|http://ftp.gnu.org/pub/gnu/auctex/auctex-12.1.tar.gz|auctex-12.1
 
 # Haskell-mode release
 haskell-mode|tgz|http://www.iro.umontreal.ca/~monnier/elisp/haskell-mode-2.4.tar.gz|haskell-mode-2.4
 # Color-theme
-color-theme|tgz|http://mirrors.zerg.biz/nongnu/color-theme/color-theme-6.6.0.tar.gz|color-theme-6.6.0
+color-theme|tgz|http://download.savannah.nongnu.org/releases/color-theme/color-theme-6.6.0.tar.gz|color-theme-6.6.0
 solarized|git|git://github.com/sellout/emacs-color-theme-solarized.git
 # Proof-General, for Coq, Isabelle, and other Theorem Provers
 #proof-general|tgz|http://proofgeneral.inf.ed.ac.uk/releases/ProofGeneral-3.7.1.tgz|ProofGeneral-3.7.1
@@ -43,7 +43,7 @@ quack.el|curl|http://www.neilvandyke.org/quack/quack.el
 markdown-mode|git|git://jblevins.org/git/markdown-mode.git
 
 # Google Maps mode & Rainbow mode
-# From: http://julien.danjou.info/google-maps-el.html 
+# From: http://julien.danjou.info/google-maps-el.html
 jd-el|git|git://git.naquadah.org/~jd/jd-el.git
 
 # MATLAB-emacs
